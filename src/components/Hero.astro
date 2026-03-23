@@ -1,0 +1,253 @@
+---
+import { CONFIG } from '../config';
+---
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <!-- Copy columna izquierda -->
+    <div class="hero-copy fade-up">
+      <span class="badge badge-orange">📦 Ideal para emprendedores</span>
+      <h1>
+        Fotos con celular<br />
+        <em>que venden</em>
+      </h1>
+      <p class="hero-lead">
+        La guía práctica para mostrar tus productos como merecen.
+        Sin estudio, sin equipos, sin conocimientos técnicos.
+      </p>
+      <ul class="hero-pills">
+        <li>☀️ Luz natural bien usada</li>
+        <li>🎨 Escenas simples</li>
+        <li>📱 Solo tu celular</li>
+      </ul>
+      <a href={CONFIG.mercadopagoUrl} class="btn-cta hero-btn">
+        Quiero el ebook — {CONFIG.precio} {CONFIG.moneda}
+      </a>
+      <p class="hero-note">📩 Recibís el PDF en tu email al instante</p>
+    </div>
+
+    <!-- Visual columna derecha -->
+    <div class="hero-visual fade-up">
+      <div class="book-wrap book-float">
+        <span class="book-badge">EBOOK<br />DIGITAL</span>
+        <div class="book-3d">
+          <div class="book-spine"></div>
+          <div class="book-cover">
+            <span class="book-label">Ebook digital</span>
+            <div class="book-title-wrap">
+              <p class="book-title">Fotos con<br />Celular<br /><em>que Venden</em></p>
+            </div>
+            <div class="book-deco">
+              <div class="deco-circle c1"></div>
+              <div class="deco-circle c2"></div>
+              <div class="deco-circle c3"></div>
+            </div>
+            <p class="book-author">Fede Forquera</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--bg);
+    padding: 120px 5% 100px;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-lead {
+    font-size: 1.1rem;
+    color: var(--ink-2);
+    max-width: 480px;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .hero-pills li {
+    padding: 8px 18px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .hero-btn {
+    align-self: flex-start;
+    font-size: 1.05rem;
+  }
+
+  .hero-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: -10px;
+  }
+
+  /* Visual */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition-delay: 0.15s;
+  }
+
+  .book-wrap {
+    position: relative;
+  }
+
+  .book-badge {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    background: var(--orange);
+    color: #5a3800;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(233,168,76,0.4);
+  }
+
+  /* Mockup 3D en CSS */
+  .book-3d {
+    display: flex;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.18));
+  }
+
+  .book-spine {
+    width: 28px;
+    background: var(--teal-dark);
+    border-radius: 4px 0 0 4px;
+    flex-shrink: 0;
+    background-image: linear-gradient(to right, #155f56, var(--teal-dark));
+  }
+
+  .book-cover {
+    width: 280px;
+    height: 380px;
+    background: linear-gradient(145deg, #2A9D8F 0%, #1d7a6e 100%);
+    border-radius: 0 8px 8px 0;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .book-label {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .book-title-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .book-title {
+    font-family: var(--font-serif);
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .book-title em {
+    color: var(--orange);
+    font-style: italic;
+  }
+
+  .book-author {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Decoración geométrica de la portada */
+  .book-deco {
+    position: absolute;
+    bottom: 48px;
+    right: 16px;
+  }
+
+  .deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    background: white;
+  }
+
+  .c1 { width: 120px; height: 120px; bottom: 0; right: 0; }
+  .c2 { width: 70px;  height: 70px;  bottom: 20px; right: 40px; opacity: 0.08; }
+  .c3 { width: 30px;  height: 30px;  bottom: 5px;  right: 90px; opacity: 0.15; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 100px 5% 70px;
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .book-cover {
+      width: 220px;
+      height: 300px;
+    }
+
+    .hero-btn {
+      align-self: stretch;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>

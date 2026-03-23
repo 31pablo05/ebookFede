@@ -1,0 +1,149 @@
+---
+---
+<section id="preview" class="preview">
+  <div class="container">
+    <span class="section-tag fade-up">Resultados reales</span>
+    <h2 class="fade-up">Pequeños cambios,<br /><span>gran diferencia</span></h2>
+    <p class="preview-lead fade-up">
+      Las mismas técnicas del ebook, aplicadas en una sesión real de 30 minutos.
+    </p>
+
+    <div class="ba-grid stagger">
+      <!-- Antes -->
+      <div class="ba-card fade-up">
+        <div class="ba-header before-header">
+          <span>❌ Antes</span>
+        </div>
+        <div class="ba-img before-img">
+          <span>🫖</span>
+        </div>
+        <div class="ba-tags">
+          <span class="ba-tag negative">✗ Luz de techo</span>
+          <span class="ba-tag negative">✗ Fondo desordenado</span>
+          <span class="ba-tag negative">✗ Lente angular</span>
+        </div>
+      </div>
+
+      <!-- Después -->
+      <div class="ba-card fade-up">
+        <div class="ba-header after-header">
+          <span>✓ Después</span>
+        </div>
+        <div class="ba-img after-img">
+          <span>☕</span>
+        </div>
+        <div class="ba-tags">
+          <span class="ba-tag positive">✓ Luz de ventana</span>
+          <span class="ba-tag positive">✓ Fondo limpio</span>
+          <span class="ba-tag positive">✓ Zoom natural</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .preview {
+    background: var(--ink);
+    padding: 100px 5%;
+  }
+
+  .preview .section-tag {
+    color: var(--teal);
+  }
+
+  .preview h2 {
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .preview h2 span {
+    color: var(--teal);
+  }
+
+  .preview-lead {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    margin-bottom: 56px;
+    max-width: 480px;
+  }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .ba-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .ba-header {
+    padding: 14px 20px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .before-header {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .after-header {
+    background: rgba(42,157,143,0.2);
+    color: var(--teal);
+  }
+
+  .ba-img {
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+  }
+
+  .before-img {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .after-img {
+    background: rgba(42,157,143,0.08);
+  }
+
+  .ba-tags {
+    padding: 16px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ba-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .ba-tag.negative {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.5);
+  }
+
+  .ba-tag.positive {
+    background: rgba(42,157,143,0.15);
+    color: var(--teal);
+  }
+
+  @media (max-width: 768px) {
+    .preview {
+      padding: 70px 5%;
+    }
+
+    .ba-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
