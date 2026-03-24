@@ -1,121 +1,73 @@
 ---
+const pains = [
+  {
+    icon: '📸',
+    title: 'Las fotos no hacen justicia',
+    desc: 'Sacás la foto con el celular y el producto parece barato. El cliente no ve lo que vos ves cuando lo tenés en las manos.'
+  },
+  {
+    icon: '💡',
+    title: 'La luz siempre sale mal',
+    desc: 'Sombras duras, colores raros, brillos quemados. No sabés bien de dónde viene el problema ni cómo arreglarlo.'
+  },
+  {
+    icon: '🎭',
+    title: 'El fondo distrae',
+    desc: 'Siempre hay algo que no suma: una pared sucia, un objeto de más, un fondo que compite con el producto.'
+  },
+  {
+    icon: '📉',
+    title: 'Fotos que no venden',
+    desc: 'La gente ve la foto pero no pregunta, no compra. Intuís que algo falla en la imagen pero no sabés exactamente qué.'
+  }
+];
 ---
-<section id="problema" class="problema">
-  <div class="container">
-    <span class="section-tag">El problema</span>
-    <h2 class="fade-up">
-      Tus productos son buenos.<br />
-      <em>Las fotos no siempre los muestran así.</em>
-    </h2>
+<section id="problema" style="padding:100px 5%;background:var(--color-ink);color:white;">
+  <div style="max-width:1100px;margin:0 auto;">
 
-    <div class="pain-grid stagger">
-      <div class="pain-card fade-up">
-        <span class="pain-icon">📸</span>
-        <h3>Las fotos no hacen justicia</h3>
-        <p>Sacás la foto con el celular y el producto parece barato. El cliente no ve lo que vos ves cuando lo tenés en las manos.</p>
-      </div>
-      <div class="pain-card fade-up">
-        <span class="pain-icon">💡</span>
-        <h3>La luz siempre sale mal</h3>
-        <p>Sombras duras, colores raros, brillos quemados. No sabés bien de dónde viene el problema ni cómo arreglarlo.</p>
-      </div>
-      <div class="pain-card fade-up">
-        <span class="pain-icon">🎭</span>
-        <h3>El fondo distrae</h3>
-        <p>Siempre hay algo que no suma: una pared sucia, un objeto de más, un fondo que compite con el producto.</p>
-      </div>
-      <div class="pain-card fade-up">
-        <span class="pain-icon">📉</span>
-        <h3>Fotos que no venden</h3>
-        <p>La gente ve la foto pero no pregunta, no compra. Intuís que algo falla en la imagen pero no sabés exactamente qué.</p>
-      </div>
+    <div class="fade-up">
+      <p class="section-tag" style="color:var(--color-teal);">El problema</p>
+      <p style="font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.6rem);
+        font-weight:700;line-height:1.2;margin-bottom:60px;max-width:700px;">
+        Tus productos son buenos.<br/>
+        <em style="color:var(--color-teal);font-style:italic;">
+          Las fotos no siempre los muestran así.
+        </em>
+      </p>
     </div>
 
-    <p class="transition-text fade-up">
-      Pero no es culpa de tu celular.<br />
-      <strong>Es cuestión de saber exactamente cómo usarlo.</strong>
-    </p>
+    <div class="stagger fade-up" style="display:grid;grid-template-columns:repeat(2,1fr);
+      gap:20px;margin-bottom:60px;">
+      {pains.map(p => (
+        <div style="background:rgba(255,255,255,0.04);
+          border:1px solid rgba(255,255,255,0.08);
+          padding:28px;border-radius:12px;
+          transition:border-color .2s;">
+          <div style="font-size:1.5rem;margin-bottom:14px;">{p.icon}</div>
+          <h3 style="font-family:var(--font-serif);font-size:1.1rem;
+            font-weight:700;margin-bottom:8px;">{p.title}</h3>
+          <p style="font-size:.875rem;color:rgba(255,255,255,0.55);
+            line-height:1.65;">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="fade-up" style="text-align:center;font-size:1.1rem;
+      color:rgba(255,255,255,0.6);padding:40px;
+      border-top:1px solid rgba(255,255,255,0.08);">
+      Pero no es culpa de tu celular.<br/>
+      <strong style="color:var(--color-teal);font-weight:500;">
+        Es cuestión de saber exactamente cómo usarlo.
+      </strong>
+    </div>
+
   </div>
 </section>
 
 <style>
-  .problema {
-    background: var(--ink);
-    padding: 100px 5%;
-  }
-
-  .problema .section-tag {
-    color: var(--teal);
-  }
-
-  .problema h2 {
-    color: white;
-    margin-bottom: 56px;
-    max-width: 640px;
-  }
-
-  .problema h2 em {
-    color: var(--teal);
-    font-style: italic;
-  }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-bottom: 56px;
-  }
-
-  .pain-card {
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius);
-    padding: 28px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .pain-card:hover {
-    border-color: var(--teal);
-    background: rgba(42,157,143,0.06);
-  }
-
-  .pain-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: 14px;
-  }
-
-  .pain-card h3 {
-    color: white;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-
-  .pain-card p {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.95rem;
-  }
-
-  .transition-text {
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.75);
-    text-align: center;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  .transition-text strong {
-    color: var(--teal);
-  }
-
   @media (max-width: 768px) {
-    .problema {
-      padding: 70px 5%;
-    }
-
-    .pain-grid {
-      grid-template-columns: 1fr;
+    #problema div[style*="grid-template-columns:repeat(2"] {
+      grid-template-columns: 1fr !important;
     }
   }
 </style>

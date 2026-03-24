@@ -22,10 +22,12 @@ import Footer from '../components/Footer.astro';
     <ParaQuien />
     <Preview />
     <Autor />
-    <section id="faq" class="section-faq">
-      <div class="container">
+    <section id="faq" style="background:white;padding:100px 5%;">
+      <div style="max-width:1100px;margin:0 auto;">
         <p class="section-tag">Preguntas frecuentes</p>
-        <h2>Todo lo que necesitás<br />saber antes de comprar</h2>
+        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:48px;max-width:500px;">
+          Todo lo que necesitás<br />saber antes de comprar
+        </h2>
         <FAQ client:visible />
       </div>
     </section>
@@ -35,19 +37,9 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  .section-faq {
-    background: var(--bg);
-    padding: 100px 5%;
-  }
-
-  .section-faq h2 {
-    margin-bottom: 48px;
-    max-width: 500px;
-  }
-
   @media (max-width: 768px) {
-    .section-faq {
-      padding: 70px 5%;
+    #faq {
+      padding: 70px 5% !important;
     }
   }
 </style>

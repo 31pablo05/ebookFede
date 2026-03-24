@@ -1,124 +1,73 @@
 ---
+const si = [
+  'Hacés productos artesanales, gastronómicos o de diseño',
+  'Vendés por Instagram, WhatsApp o tienda online',
+  'Querés fotos más profesionales sin comprar equipos',
+  'Sentís que tus fotos no muestran el valor real de lo que hacés',
+  'Tenés poco tiempo y querés resultados rápidos y concretos',
+];
+const no = [
+  'Ya sos fotógrafo profesional con experiencia en producto',
+  'Buscás un curso técnico profundo sobre cámaras y óptica',
+  'Querés aprender edición avanzada en Lightroom o Photoshop',
+  'Necesitás un estudio profesional o producción a gran escala',
+];
 ---
-<section id="para-quien" class="paraquien section-base">
-  <div class="container">
-    <span class="section-tag fade-up">Para quién es</span>
-    <h2 class="fade-up">¿Este ebook<br />es para vos?</h2>
+<section id="para-quien" style="padding:100px 5%;background:var(--color-bg-alt);">
+  <div style="max-width:1100px;margin:0 auto;">
 
-    <div class="pq-grid stagger">
-      <!-- ES para vos -->
-      <div class="pq-card fade-up">
-        <h3 class="pq-title is">✅ Es para vos si...</h3>
-        <ul class="pq-list">
-          <li>
-            <span class="check">✓</span>
-            Hacés productos artesanales, gastronómicos o de diseño
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Vendés por Instagram, WhatsApp o tienda online
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Querés fotos más profesionales sin comprar equipos
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Sentís que tus fotos no muestran el valor real de lo que hacés
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Tenés poco tiempo y querés resultados rápidos y concretos
-          </li>
+    <div class="fade-up">
+      <p class="section-tag">Para quién es</p>
+      <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:48px;">
+        ¿Este ebook<br/>és para vos?
+      </h2>
+    </div>
+
+    <div class="stagger fade-up" style="display:grid;
+      grid-template-columns:1fr 1fr;gap:24px;">
+
+      <div style="background:white;border-radius:12px;padding:32px;">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;
+          font-weight:700;margin-bottom:24px;">✅ Es para vos si...</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+          {si.map(item => (
+            <li style="display:flex;gap:12px;font-size:.9rem;
+              line-height:1.5;align-items:flex-start;">
+              <div style="width:22px;height:22px;border-radius:50%;flex-shrink:0;
+                background:var(--color-teal-light);color:var(--color-teal);
+                display:flex;align-items:center;justify-content:center;
+                font-size:.7rem;font-weight:700;margin-top:1px;">✓</div>
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- NO es para vos -->
-      <div class="pq-card fade-up">
-        <h3 class="pq-title not">❌ No es para vos si...</h3>
-        <ul class="pq-list">
-          <li>
-            <span class="cross">✗</span>
-            Ya sos fotógrafo profesional con experiencia en producto
-          </li>
-          <li>
-            <span class="cross">✗</span>
-            Buscás un curso técnico profundo sobre cámaras y óptica
-          </li>
-          <li>
-            <span class="cross">✗</span>
-            Querés aprender edición avanzada en Lightroom o Photoshop
-          </li>
-          <li>
-            <span class="cross">✗</span>
-            Necesitás un estudio profesional o producción a gran escala
-          </li>
+      <div style="background:white;border-radius:12px;padding:32px;">
+        <h3 style="font-family:var(--font-serif);font-size:1.25rem;
+          font-weight:700;margin-bottom:24px;">❌ No es para vos si...</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+          {no.map(item => (
+            <li style="display:flex;gap:12px;font-size:.9rem;
+              line-height:1.5;align-items:flex-start;">
+              <div style="width:22px;height:22px;border-radius:50%;flex-shrink:0;
+                background:#fde8e8;color:#c0392b;
+                display:flex;align-items:center;justify-content:center;
+                font-size:.7rem;font-weight:700;margin-top:1px;">✗</div>
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  .paraquien {
-    background: var(--bg-alt);
-  }
-
-  .paraquien h2 {
-    margin-bottom: 48px;
-  }
-
-  .pq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .pq-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 32px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-  }
-
-  .pq-title {
-    font-size: 1.05rem;
-    margin-bottom: 24px;
-  }
-
-  .pq-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .pq-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 0.95rem;
-    color: var(--ink-2);
-    line-height: 1.5;
-  }
-
-  .check {
-    color: var(--teal);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .cross {
-    color: #e05d5d;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
   @media (max-width: 768px) {
-    .pq-grid {
-      grid-template-columns: 1fr;
+    #para-quien div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
     }
   }
 </style>

@@ -1,149 +1,70 @@
 ---
 ---
-<section id="preview" class="preview">
-  <div class="container">
-    <span class="section-tag fade-up">Resultados reales</span>
-    <h2 class="fade-up">Pequeños cambios,<br /><span>gran diferencia</span></h2>
-    <p class="preview-lead fade-up">
-      Las mismas técnicas del ebook, aplicadas en una sesión real de 30 minutos.
-    </p>
+<section id="preview" style="padding:100px 5%;background:var(--color-ink);color:white;">
+  <div style="max-width:1100px;margin:0 auto;">
 
-    <div class="ba-grid stagger">
+    <div class="fade-up">
+      <p class="section-tag" style="color:var(--color-teal);">Resultados reales</p>
+      <h2 style="color:white;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:16px;">
+        Pequeños cambios,<br/>gran diferencia
+      </h2>
+      <p style="color:rgba(255,255,255,0.6);font-size:1.05rem;
+        line-height:1.7;margin-bottom:48px;max-width:640px;font-weight:300;">
+        Las mismas técnicas del ebook, aplicadas en una sesión real de 30 minutos.
+      </p>
+    </div>
+
+    <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
       <!-- Antes -->
-      <div class="ba-card fade-up">
-        <div class="ba-header before-header">
-          <span>❌ Antes</span>
+      <div style="border-radius:12px;overflow:hidden;">
+        <div style="background:rgba(255,255,255,0.06);padding:12px 20px;
+          font-weight:500;font-size:.875rem;display:flex;align-items:center;gap:8px;">
+          ❌ Antes
         </div>
-        <div class="ba-img before-img">
-          <span>🫖</span>
+        <div style="height:200px;background:rgba(255,255,255,0.03);
+          display:flex;align-items:center;justify-content:center;font-size:4rem;">
+          🪖
         </div>
-        <div class="ba-tags">
-          <span class="ba-tag negative">✗ Luz de techo</span>
-          <span class="ba-tag negative">✗ Fondo desordenado</span>
-          <span class="ba-tag negative">✗ Lente angular</span>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+          {['Luz de techo','Fondo desordenado','Lente angular'].map(t => (
+            <div style="display:flex;align-items:center;gap:8px;
+              font-size:.8rem;opacity:.7;">
+              ✗ {t}
+            </div>
+          ))}
         </div>
       </div>
 
       <!-- Después -->
-      <div class="ba-card fade-up">
-        <div class="ba-header after-header">
-          <span>✓ Después</span>
+      <div style="border-radius:12px;overflow:hidden;">
+        <div style="background:rgba(42,157,143,0.2);padding:12px 20px;
+          color:var(--color-teal);font-weight:500;font-size:.875rem;
+          display:flex;align-items:center;gap:8px;">
+          ✓ Después
         </div>
-        <div class="ba-img after-img">
-          <span>☕</span>
+        <div style="height:200px;background:rgba(42,157,143,0.06);
+          display:flex;align-items:center;justify-content:center;font-size:4rem;">
+          ☕
         </div>
-        <div class="ba-tags">
-          <span class="ba-tag positive">✓ Luz de ventana</span>
-          <span class="ba-tag positive">✓ Fondo limpio</span>
-          <span class="ba-tag positive">✓ Zoom natural</span>
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
+          {['Luz de ventana','Fondo limpio','Zoom natural'].map(t => (
+            <div style="display:flex;align-items:center;gap:8px;
+              font-size:.8rem;color:#9FE1CB;">
+              ✓ {t}
+            </div>
+          ))}
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  .preview {
-    background: var(--ink);
-    padding: 100px 5%;
-  }
-
-  .preview .section-tag {
-    color: var(--teal);
-  }
-
-  .preview h2 {
-    color: white;
-    margin-bottom: 16px;
-  }
-
-  .preview h2 span {
-    color: var(--teal);
-  }
-
-  .preview-lead {
-    color: rgba(255,255,255,0.65);
-    font-size: 1.05rem;
-    margin-bottom: 56px;
-    max-width: 480px;
-  }
-
-  .ba-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .ba-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .ba-header {
-    padding: 14px 20px;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-
-  .before-header {
-    background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.7);
-  }
-
-  .after-header {
-    background: rgba(42,157,143,0.2);
-    color: var(--teal);
-  }
-
-  .ba-img {
-    height: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-  }
-
-  .before-img {
-    background: rgba(255,255,255,0.04);
-  }
-
-  .after-img {
-    background: rgba(42,157,143,0.08);
-  }
-
-  .ba-tags {
-    padding: 16px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .ba-tag {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 5px 12px;
-    border-radius: 20px;
-  }
-
-  .ba-tag.negative {
-    background: rgba(255,255,255,0.07);
-    color: rgba(255,255,255,0.5);
-  }
-
-  .ba-tag.positive {
-    background: rgba(42,157,143,0.15);
-    color: var(--teal);
-  }
-
   @media (max-width: 768px) {
-    .preview {
-      padding: 70px 5%;
-    }
-
-    .ba-grid {
-      grid-template-columns: 1fr;
+    #preview div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
     }
   }
 </style>

@@ -1,78 +1,35 @@
 ---
 import { CONFIG } from '../config';
 ---
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Fede Forquera</a>
-    <ul class="nav-links">
-      <li><a href="#incluye">Qué incluye</a></li>
-      <li><a href="#para-quien">Para quién</a></li>
-      <li><a href="#autor">El autor</a></li>
-    </ul>
-    <a href="#cta-final" class="btn-cta nav-cta">Comprá el ebook</a>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(247,238,228,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(42,157,143,0.12);
+  height:64px;padding:0 5%;display:flex;align-items:center;
+  justify-content:space-between;">
+
+  <a href="#hero" style="font-family:var(--font-serif);font-size:1.1rem;
+    font-weight:700;color:var(--color-ink);letter-spacing:-0.02em;">
+    Fede Forquera
+  </a>
+
+  <div class="nav-links" style="display:flex;gap:28px;align-items:center;">
+    <a href="#incluye" style="font-size:.875rem;color:var(--color-ink-2);
+      transition:color .2s;">Qué incluye</a>
+    <a href="#para-quien" style="font-size:.875rem;color:var(--color-ink-2);
+      transition:color .2s;">Para quién</a>
+    <a href="#autor" style="font-size:.875rem;color:var(--color-ink-2);
+      transition:color .2s;">El autor</a>
+    <a href={CONFIG.mercadopagoUrl}
+      style="background:var(--color-teal);color:white;padding:10px 20px;
+      border-radius:40px;font-size:.875rem;font-weight:500;
+      transition:background .2s;">
+      Comprá el ebook
+    </a>
   </div>
 </nav>
 
 <style>
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: rgba(247, 238, 228, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(42, 157, 143, 0.12);
-    height: 64px;
-  }
-
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 5%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  .nav-logo {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--ink);
-    white-space: nowrap;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-  }
-
-  .nav-links a {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--ink-2);
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover {
-    color: var(--teal);
-  }
-
-  .nav-cta {
-    font-size: 0.875rem;
-    padding: 10px 22px;
-    white-space: nowrap;
-  }
-
   @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
+    .nav-links a:not(:last-child) { display: none; }
   }
 </style>
