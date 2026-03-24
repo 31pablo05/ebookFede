@@ -22,8 +22,19 @@ const pains = [
   }
 ];
 ---
-<section id="problema" style="padding:100px 5%;background:var(--color-ink);color:white;">
-  <div style="max-width:1100px;margin:0 auto;">
+<section id="problema" style="padding:100px 5%;background:var(--color-ink);color:white;position:relative;overflow:hidden;">
+
+  <!-- Video de fondo -->
+  <video
+    autoplay muted loop playsinline
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
+  >
+    <source src="/videos/fondoDeSeccion.mp4" type="video/mp4" />
+  </video>
+  <!-- Overlay oscuro sobre el video -->
+  <div style="position:absolute;inset:0;background:rgba(10,20,18,0.82);z-index:1;"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:2;">
 
     <div class="fade-up">
       <p class="section-tag" style="color:var(--color-teal);">El problema</p>

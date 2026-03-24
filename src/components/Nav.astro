@@ -6,8 +6,7 @@ import { CONFIG } from '../config';
 
     <!-- Logo -->
     <a href="#hero" class="nav-logo">
-      <span class="logo-dot"></span>
-      <img src="/images/logo/logo-color-curvas.webp" alt="Fede Forquera" class="nav-logo-img" />
+      <img src="/images/logo/logo3.svg" alt="Fede Forquera" class="nav-logo-img" />
     </a>
 
     <!-- Links -->
@@ -44,7 +43,7 @@ import { CONFIG } from '../config';
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(42, 157, 143, 0.25);
-    height: 68px;
+    height: 120px;
   }
 
   /* Línea teal decorativa en el borde inferior */
@@ -81,24 +80,15 @@ import { CONFIG } from '../config';
   }
 
   .nav-logo-img {
-    height: 52px;
+    height: 110px;
     width: auto;
     display: block;
+    animation: logo-float 3.5s ease-in-out infinite;
   }
 
-  .logo-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-teal);
-    box-shadow: 0 0 8px rgba(42, 157, 143, 0.8);
-    animation: pulse-dot 2.5s ease-in-out infinite;
-    flex-shrink: 0;
-  }
-
-  @keyframes pulse-dot {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50%       { transform: scale(1.4); opacity: 0.7; }
+  @keyframes logo-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-6px); }
   }
 
   /* Links */

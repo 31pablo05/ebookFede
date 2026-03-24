@@ -15,19 +15,29 @@ const previews = [
 
     <div class="fade-up">
       <p class="section-tag">La solución</p>
-      <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:20px;">
-        Este ebook te enseña<br/>exactamente eso
-      </h2>
-      <p style="font-size:1.05rem;color:var(--color-ink-2);line-height:1.7;
-        margin-bottom:48px;max-width:640px;font-weight:300;">
-        Una guía práctica de {CONFIG.ebookPaginas} páginas con técnicas reales,
-        ejemplos visuales y videos de ejemplo. Todo aplicable desde el primer día,
-        con lo que ya tenés en casa.
-      </p>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;margin-bottom:20px;">
+        <div>
+          <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:20px;">
+            Este ebook te enseña<br/>exactamente eso
+          </h2>
+          <p style="font-size:1.05rem;color:var(--color-ink-2);line-height:1.7;
+            margin-bottom:0;max-width:480px;font-weight:300;">
+            Una guía práctica de {CONFIG.ebookPaginas} páginas con técnicas reales,
+            ejemplos visuales y videos de ejemplo. Todo aplicable desde el primer día,
+            con lo que ya tenés en casa.
+          </p>
+        </div>
+        <img
+          src="/images/ebook/fotosQueVenden.PNG"
+          alt="Primera página del ebook Fotos con Celular que Venden"
+          style="width:200px;border-radius:10px;
+            box-shadow:0 8px 32px rgba(0,0,0,0.14);flex-shrink:0;"
+        />
+      </div>
     </div>
 
     <div class="stagger fade-up" style="display:grid;
-      grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;">
+      grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;margin-top:48px;">
       {previews.map(p => (
         <div style="background:white;border-radius:12px;overflow:hidden;
           border:1px solid rgba(0,0,0,0.06);
@@ -60,6 +70,13 @@ const previews = [
   @media (max-width: 768px) {
     #que-es div[style*="grid-template-columns:repeat(3"] {
       grid-template-columns: 1fr !important;
+    }
+    #que-es div[style*="grid-template-columns:1fr auto"] {
+      grid-template-columns: 1fr !important;
+    }
+    #que-es img[src*="fotosQueVenden"] {
+      width: 160px !important;
+      margin: 0 auto;
     }
   }
 </style>

@@ -14,17 +14,16 @@ import { CONFIG } from '../config';
     <div class="fade-up" style="display:grid;
       grid-template-columns:200px 1fr;gap:56px;align-items:start;">
 
-      <!-- Foto (placeholder) -->
-      <div style="width:200px;height:200px;border-radius:20px;
-        background:var(--color-teal-light);
-        border:2px solid rgba(42,157,143,0.2);
-        display:flex;align-items:center;justify-content:center;
-        flex-direction:column;gap:8px;flex-shrink:0;">
-        <span style="font-size:3rem;">📷</span>
-        <span style="font-size:.75rem;color:var(--color-muted);
-          text-align:center;padding:0 12px;">
-          Foto de Fede próximamente
-        </span>
+      <!-- Foto -->
+      <div style="flex-shrink:0;">
+        <img
+          src="/images/about/fedeabout.jpg"
+          alt="Fede Forquera"
+          style="width:200px;height:200px;border-radius:20px;
+            object-fit:cover;object-position:center top;
+            border:2px solid rgba(42,157,143,0.2);
+            box-shadow:0 8px 32px rgba(0,0,0,0.1);display:block;"
+        />
       </div>
 
       <!-- Bio -->
@@ -34,18 +33,30 @@ import { CONFIG } from '../config';
           {CONFIG.autorNombre}
         </div>
         <div style="color:var(--color-teal);font-size:.9rem;
-          font-weight:500;margin-bottom:20px;">
+          font-weight:500;margin-bottom:24px;">
           {CONFIG.autorRol}
         </div>
-        <p style="font-size:.95rem;color:var(--color-ink-2);line-height:1.75;
-          margin-bottom:24px;font-weight:300;">
-          Fede lleva años fotografiando y filmando proyectos publicitarios.
-          Trabajó con marcas, emprendedores y productos que necesitaban imágenes
-          que vendieran — no solo que se vean lindas.<br/><br/>
-          Este ebook nació de ver emprendedores con productos increíbles pero fotos
-          que no los representaban. Quiso que cualquier persona, sin experiencia
-          ni equipos, pudiera tomar fotos que transmitan el valor real de lo que hacen.
-        </p>
+
+        <!-- Bio items -->
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px;">
+          {[
+            { e: '👋🏼', t: 'Hola, soy Fede Forquera, fotógrafo y filmmaker publicitario.' },
+            { e: '📷', t: 'Me dedico a crear contenido audiovisual de gastronomía, productos y cobertura de eventos.' },
+            { e: '❤️',  t: 'Hace más de cuatro años que vivo de mi pasión.' },
+            { e: '📍', t: 'Soy del sur, nací en Trelew-Chubut. Crecí rodeado de naturaleza y silencio — eso marcó mi forma de ver y estar en el mundo.' },
+            { e: '🏙️', t: 'Desde hace un par de años vivo en Buenos Aires. Dejé atrás varios miedos para apostar a esto: mi proyecto, mi pasión, mi forma de vivir.' },
+            { e: '👨🏼‍💼', t: 'Antes quería ser Contador Público. Estudié la carrera, la dejé en tercer año, trabajé en estudios contables y terminé renunciando por hacerme caso a mí mismo.' },
+            { e: '✨', t: 'Hoy mi propósito es crear contenido con alma: que no solo muestre, sino que cuente algo.' },
+            { e: '👉🏼', t: 'Trabajo con personas comprometidas y marcas que aman lo que hacen, y quieren transmitirlo con autenticidad.' },
+          ].map(({ e, t }) => (
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <span style="font-size:1.1rem;flex-shrink:0;line-height:1.6;">{e}</span>
+              <p style="font-size:.9rem;color:var(--color-ink-2);line-height:1.65;
+                font-weight:300;margin:0;">{t}</p>
+            </div>
+          ))}
+        </div>
+
         <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer"
           style="display:inline-flex;align-items:center;gap:8px;
           background:white;border:1px solid rgba(0,0,0,0.08);

@@ -37,19 +37,6 @@ import { CONFIG } from '../config';
         Sin estudio, sin equipos, sin conocimientos técnicos.
       </p>
 
-      <!-- Pills -->
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;">
-        {['Luz natural bien usada', 'Escenas simples', 'Solo tu celular'].map(item => (
-          <div style="display:flex;align-items:center;gap:7px;
-            background:white;border:1px solid rgba(42,157,143,0.2);
-            padding:8px 14px;border-radius:40px;font-size:.8rem;color:var(--color-ink-2);">
-            <span style="width:8px;height:8px;background:var(--color-teal);
-              border-radius:50%;flex-shrink:0;"></span>
-            {item}
-          </div>
-        ))}
-      </div>
-
       <!-- CTA -->
       <a href={CONFIG.mercadopagoUrl} class="btn-cta">
         Quiero el ebook — {CONFIG.precioCompleto}
@@ -60,9 +47,9 @@ import { CONFIG } from '../config';
     </div>
 
     <!-- Portada del ebook -->
-    <div class="book-float fade-up" style="display:flex;justify-content:center;align-items:center;">
+    <div class="book-float fade-up" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:24px;">
       <img
-        src="/images/ebook/portada.png"
+        src="/images/ebook/portadaEbook.svg"
         alt="Portada del ebook Fotos con Celular que Venden"
         style="
           width:460px;
@@ -70,6 +57,18 @@ import { CONFIG } from '../config';
           filter:drop-shadow(16px 24px 24px rgba(0,0,0,0.25));
         "
       />
+      <!-- Pills -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+        {['Luz natural bien usada', 'Escenas simples', 'Solo tu celular'].map(item => (
+          <div style="display:flex;align-items:center;gap:7px;
+            background:white;border:1px solid rgba(42,157,143,0.2);
+            padding:8px 14px;border-radius:40px;font-size:.8rem;color:var(--color-ink-2);">
+            <span style="width:8px;height:8px;background:var(--color-teal);
+              border-radius:50%;flex-shrink:0;"></span>
+            {item}
+          </div>
+        ))}
+      </div>
     </div>
 
   </div>
