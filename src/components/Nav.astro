@@ -9,14 +9,14 @@ import { CONFIG } from '../config';
       <img src="/images/logo/logo3.svg" alt="Fede Forquera" class="nav-logo-img" />
     </a>
 
-    <!-- Links -->
+    <!-- Links desktop -->
     <ul class="nav-links">
       <li><a href="#incluye" class="nav-link">Qué incluye</a></li>
       <li><a href="#para-quien" class="nav-link">Para quién</a></li>
       <li><a href="#autor" class="nav-link">El autor</a></li>
     </ul>
 
-    <!-- CTA -->
+    <!-- CTA desktop (oculto en mobile) -->
     <a href={CONFIG.mercadopagoUrl} class="nav-cta">
       <span>Comprá el ebook</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -26,24 +26,52 @@ import { CONFIG } from '../config';
     </a>
 
     <!-- Hamburger mobile -->
-    <button class="nav-hamburger" aria-label="Menú">
+    <button class="nav-hamburger" aria-label="Menú" id="nav-hamburger">
       <span></span><span></span><span></span>
     </button>
 
   </div>
+
+  <!-- Menú desplegable mobile -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <ul class="nav-mobile-links">
+      <li><a href="#incluye" class="nav-mobile-link">Qué incluye</a></li>
+      <li><a href="#para-quien" class="nav-mobile-link">Para quién</a></li>
+      <li><a href="#autor" class="nav-mobile-link">El autor</a></li>
+    </ul>
+    <a href={CONFIG.mercadopagoUrl} class="nav-mobile-cta">
+      Comprá el ebook →
+    </a>
+  </div>
 </nav>
+
+<script>
+  const btn = document.getElementById('nav-hamburger');
+  const menu = document.getElementById('nav-mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('is-open');
+    btn.classList.toggle('is-open', open);
+  });
+
+  // Cerrar al tocar un link
+  document.querySelectorAll('.nav-mobile-link, .nav-mobile-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('is-open');
+      btn?.classList.remove('is-open');
+    });
+  });
+</script>
 
 <style>
   .site-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    /* Barra oscura que contrasta con el hero claro */
     background: rgba(20, 20, 20, 0.96);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(42, 157, 143, 0.25);
-    height: 120px;
   }
 
   /* Línea teal decorativa en el borde inferior */
@@ -64,7 +92,7 @@ import { CONFIG } from '../config';
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 5%;
-    height: 100%;
+    height: 120px;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -74,8 +102,6 @@ import { CONFIG } from '../config';
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    white-space: nowrap;
     flex-shrink: 0;
   }
 
@@ -91,7 +117,7 @@ import { CONFIG } from '../config';
     50%       { transform: translateY(-6px); }
   }
 
-  /* Links */
+  /* Links desktop */
   .nav-links {
     display: flex;
     list-style: none;
@@ -122,16 +148,10 @@ import { CONFIG } from '../config';
     transition: transform 0.25s ease;
   }
 
-  .nav-link:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.06);
-  }
+  .nav-link:hover { color: white; background: rgba(255,255,255,0.06); }
+  .nav-link:hover::after { transform: translateX(-50%) scaleX(1); }
 
-  .nav-link:hover::after {
-    transform: translateX(-50%) scaleX(1);
-  }
-
-  /* CTA */
+  /* CTA desktop */
   .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -148,7 +168,6 @@ import { CONFIG } from '../config';
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 16px rgba(42, 157, 143, 0.4);
   }
-
   .nav-cta:hover {
     background: var(--color-teal-dark);
     transform: translateY(-1px);
@@ -159,43 +178,98 @@ import { CONFIG } from '../config';
   .nav-hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     margin-left: auto;
+    flex-shrink: 0;
   }
 
   .nav-hamburger span {
     display: block;
-    width: 22px;
+    width: 24px;
     height: 2px;
     background: white;
     border-radius: 2px;
-    transition: opacity 0.2s;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
   }
+
+  /* Animación X al abrir */
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menú desplegable mobile */
+  .nav-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 5% 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(20, 20, 20, 0.98);
+  }
+
+  .nav-mobile-menu.is-open {
+    display: flex;
+  }
+
+  .nav-mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .nav-mobile-link {
+    display: block;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-mobile-link:hover {
+    background: rgba(255,255,255,0.06);
+    color: white;
+  }
+
+  .nav-mobile-cta {
+    display: block;
+    text-align: center;
+    background: var(--color-teal);
+    color: white;
+    padding: 14px 20px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+
+  .nav-mobile-cta:hover { background: var(--color-teal-dark); }
 
   /* Mobile */
   @media (max-width: 768px) {
+    .nav-inner {
+      gap: 16px;
+    }
+
     .nav-links {
+      display: none;
+    }
+
+    .nav-cta {
       display: none;
     }
 
     .nav-hamburger {
       display: flex;
-    }
-
-    .nav-inner {
-      gap: 16px;
-    }
-
-    .nav-cta span {
-      display: none;
-    }
-
-    .nav-cta {
-      padding: 9px 14px;
     }
   }
 </style>
