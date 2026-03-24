@@ -12,14 +12,14 @@ import { CONFIG } from '../config';
     </div>
 
     <div class="fade-up" style="display:grid;
-      grid-template-columns:200px 1fr;gap:56px;align-items:start;">
+      grid-template-columns:280px 1fr;gap:56px;align-items:start;">
 
       <!-- Foto -->
       <div style="flex-shrink:0;">
         <img
           src="/images/about/fedeabout.jpg"
           alt="Fede Forquera"
-          style="width:200px;height:200px;border-radius:20px;
+          style="width:280px;height:320px;border-radius:20px;
             object-fit:cover;object-position:center top;
             border:2px solid rgba(42,157,143,0.2);
             box-shadow:0 8px 32px rgba(0,0,0,0.1);display:block;"
@@ -79,8 +79,12 @@ import { CONFIG } from '../config';
 
 <style>
   @media (max-width: 768px) {
-    #autor div[style*="grid-template-columns:200px"] {
+    #autor div[style*="grid-template-columns:280px"] {
       grid-template-columns: 1fr !important;
+    }
+    #autor img[src*="fedeabout"] {
+      width: 100% !important;
+      height: 260px !important;
     }
   }
 </style>

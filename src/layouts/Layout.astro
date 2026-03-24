@@ -15,13 +15,44 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="ebook fotografía celular, fotos productos celular, fotografía emprendedores argentina, fotos que venden instagram, guía fotografía celular, fede forquera" />
+    <link rel="canonical" href="https://fedeforquera.com/" />
     <!-- Open Graph -->
+    <meta property="og:type" content="product" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og-image.jpg" />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/ebook/fotosQueVenden.PNG" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://fedeforquera.com/" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Fede Forquera — Fotografía" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/ebook/fotosQueVenden.PNG" />
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Fotos con Celular que Venden",
+      "description": "Guía práctica de 50 páginas para fotografiar productos con el celular. Técnicas reales de luz natural, escenografía y redes sociales para emprendedores.",
+      "image": "https://fedeforquera.com/images/ebook/fotosQueVenden.PNG",
+      "brand": { "@type": "Brand", "name": "Fede Forquera" },
+      "author": { "@type": "Person", "name": "Fede Forquera", "url": "https://www.instagram.com/fede_forquera/" },
+      "offers": {
+        "@type": "Offer",
+        "price": "20000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

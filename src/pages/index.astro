@@ -6,6 +6,7 @@ import Problema from '../components/Problema.astro';
 import QueEs from '../components/QueEs.astro';
 import Incluye from '../components/Incluye.astro';
 import ParaQuien from '../components/ParaQuien.astro';
+import { CONFIG } from '../config';
 import Preview from '../components/Preview.astro';
 import Autor from '../components/Autor.astro';
 import FAQ from '../components/islands/FAQ.jsx';
@@ -19,6 +20,22 @@ import Footer from '../components/Footer.astro';
     <Problema />
     <QueEs />
     <Incluye />
+
+    <!-- CTA intermedio -->
+    <section style="padding:56px 5%;background:var(--color-ink);text-align:center;">
+      <div style="max-width:640px;margin:0 auto;" class="fade-up">
+        <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:8px;font-weight:300;">
+          Todo lo que aprendés lo podés aplicar hoy, con el celular que ya tenés.
+        </p>
+        <p style="color:white;font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:24px;">
+          Sin estudio. Sin equipos. Sin excusas.
+        </p>
+        <a href={CONFIG.mercadopagoUrl} class="btn-cta">
+          Quiero el ebook — {CONFIG.precioCompleto}
+        </a>
+      </div>
+    </section>
+
     <ParaQuien />
     <Preview />
     <Autor />

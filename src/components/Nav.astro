@@ -54,12 +54,29 @@ import { CONFIG } from '../config';
     btn.classList.toggle('is-open', open);
   });
 
-  // Cerrar al tocar un link
-  document.querySelectorAll('.nav-mobile-link, .nav-mobile-cta').forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.remove('is-open');
-      btn?.classList.remove('is-open');
+  // Cerrar el menú DESPUÉS de que el scroll arranque
+  document.querySelectorAll('.nav-mobile-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = (link as HTMLAnchorElement).getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        // Cerrar menú primero
+        menu?.classList.remove('is-open');
+        btn?.classList.remove('is-open');
+        // Scroll con pequeño delay para que el menú cierre y recalcule el layout
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 50);
+      }
     });
+  });
+
+  document.querySelector('.nav-mobile-cta')?.addEventListener('click', () => {
+    menu?.classList.remove('is-open');
+    btn?.classList.remove('is-open');
   });
 </script>
 

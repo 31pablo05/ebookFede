@@ -1,27 +1,249 @@
 ---
 import { CONFIG } from '../config';
 ---
-<footer style="background:var(--color-ink);padding:40px 5%;">
-  <div style="max-width:1100px;margin:0 auto;
-    display:flex;justify-content:space-between;align-items:center;
-    flex-wrap:wrap;gap:16px;">
-    <img src="/images/logo/logo3.svg" alt="Fede Forquera"
-      style="height:64px;width:auto;display:block;" />
-    <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer"
-      style="color:rgba(255,255,255,0.7);font-size:.875rem;
-      transition:color .2s;text-decoration:none;">
-      {CONFIG.instagramHandle}
-    </a>
-    <span style="color:rgba(255,255,255,0.5);font-size:.875rem;">
-      © 2026 · Todos los derechos reservados
-    </span>
+<footer id="footer">
+
+  <!-- Cuerpo principal del footer -->
+  <div class="footer-inner">
+
+    <!-- Columna 1: Logo + tagline -->
+    <div class="footer-col">
+      <img src="/images/logo/logo3.svg" alt="Fede Forquera" class="footer-logo" />
+      <p class="footer-tagline">
+        Fotógrafo & Filmmaker Publicitario.<br/>
+        Creando contenido con alma desde Buenos Aires.
+      </p>
+      <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer" class="footer-ig">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        {CONFIG.instagramHandle}
+      </a>
+    </div>
+
+    <!-- Columna 2: El ebook -->
+    <div class="footer-col">
+      <h4 class="footer-heading">El ebook</h4>
+      <ul class="footer-list">
+        <li><a href="#que-es">¿Qué es?</a></li>
+        <li><a href="#incluye">Qué incluye</a></li>
+        <li><a href="#para-quien">Para quién es</a></li>
+        <li><a href="#preview">Resultados reales</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Lo que vas a aprender -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Lo que aprendés</h4>
+      <ul class="footer-list">
+        <li>✦ Luz natural bien usada</li>
+        <li>✦ Escenografía simple y efectiva</li>
+        <li>✦ 5 tipos de fotos que venden</li>
+        <li>✦ Fotos para tienda online</li>
+        <li>✦ Contenido para Instagram</li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: CTA -->
+    <div class="footer-col footer-col-cta">
+      <h4 class="footer-heading">Empezá hoy</h4>
+      <p class="footer-price">{CONFIG.precioCompleto}</p>
+      <p class="footer-price-sub">Pago único · PDF inmediato</p>
+      <a href={CONFIG.mercadopagoUrl} class="footer-btn">
+        Comprar el ebook →
+      </a>
+    </div>
+
   </div>
+
+  <!-- Línea divisoria -->
+  <div class="footer-divider"></div>
+
+  <!-- Pie inferior -->
+  <div class="footer-bottom">
+    <span>© 2026 Fede Forquera · Todos los derechos reservados</span>
+    <a href="https://devcraftpablo.online/" target="_blank" rel="noopener noreferrer" class="footer-dev">
+      <img src="/images/logo/devcraft.png" alt="DevCraft" class="footer-dev-logo" />
+      Desarrollado por <span class="footer-dev-name">DevCraft</span>
+    </a>
+  </div>
+
 </footer>
 
 <style>
-  @media (max-width: 768px) {
-    footer > div {
-      flex-direction: column !important;
+  #footer {
+    background: var(--color-ink);
+    color: white;
+    padding: 64px 5% 32px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+
+  .footer-logo {
+    height: 64px;
+    width: auto;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-size: .82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  .footer-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .82rem;
+    color: var(--color-teal);
+    transition: opacity .2s;
+  }
+
+  .footer-ig:hover { opacity: .75; }
+
+  .footer-heading {
+    font-family: var(--font-serif);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-list li,
+  .footer-list a {
+    font-size: .85rem;
+    color: rgba(255,255,255,0.6);
+    transition: color .2s;
+    line-height: 1.4;
+  }
+
+  .footer-list a:hover { color: white; }
+
+  .footer-col-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-price {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .footer-price-sub {
+    font-size: .75rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .footer-btn {
+    display: inline-block;
+    background: var(--color-teal);
+    color: white;
+    padding: 11px 22px;
+    border-radius: 40px;
+    font-size: .875rem;
+    font-weight: 600;
+    transition: background .2s, transform .2s;
+    margin-bottom: 12px;
+  }
+
+  .footer-btn:hover {
+    background: var(--color-teal-dark);
+    transform: translateY(-1px);
+  }
+
+  .footer-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: .78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-dev {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.35);
+    transition: opacity .2s;
+  }
+
+  .footer-dev:hover { opacity: .75; }
+
+  .footer-dev-logo {
+    height: 22px;
+    width: auto;
+    display: block;
+    opacity: 0.7;
+    transition: opacity .2s;
+  }
+
+  .footer-dev:hover .footer-dev-logo { opacity: 1; }
+
+  .footer-dev-name {
+    color: #a78bfa;
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-col-cta {
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
       text-align: center;
     }
   }
