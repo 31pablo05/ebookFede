@@ -1,63 +1,95 @@
 ---
 ---
-<section id="preview" style="padding:100px 5%;background:var(--color-ink);color:white;">
-  <div style="max-width:1100px;margin:0 auto;">
+<section id="preview" style="padding:clamp(5rem,9vw,7rem) 5%;background:var(--color-ink);color:white;position:relative;overflow:hidden;">
 
-    <div class="fade-up">
+  <!-- Decoración fondo -->
+  <div style="position:absolute;right:-10%;bottom:-15%;width:50vw;height:50vw;
+    background:radial-gradient(circle,rgba(42,157,143,0.06) 0%,transparent 60%);
+    border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+
+    <div class="fade-up" style="margin-bottom:56px;">
       <p class="section-tag" style="color:var(--color-teal);">Resultados reales</p>
-      <h2 style="color:white;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:16px;">
-        Pequeños cambios,<br/>gran diferencia
+      <h2 style="color:white;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:14px;">
+        Pequeños cambios,<br/><em style="color:var(--color-teal);font-style:italic;">gran diferencia</em>
       </h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:1.05rem;
-        line-height:1.7;margin-bottom:48px;max-width:640px;font-weight:300;">
-        Las mismas técnicas del ebook, aplicadas en una sesión real de 30 minutos.
+      <p style="color:rgba(255,255,255,0.55);font-size:1rem;
+        line-height:1.75;max-width:560px;font-weight:300;">
+        Las mismas técnicas del ebook, aplicadas en una sesión real de 30 minutos. Deslizá para ver la diferencia.
       </p>
     </div>
 
-    <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <!-- Slider before/after -->
+    <div class="fade-up preview-layout">
 
-      <!-- Antes -->
-      <div style="border-radius:12px;overflow:hidden;">
-        <div style="background:rgba(255,255,255,0.06);padding:12px 20px;
-          font-weight:500;font-size:.875rem;display:flex;align-items:center;gap:8px;">
-          ❌ Antes
-        </div>
-        <div style="background:rgba(255,255,255,0.03);overflow:hidden;">
+      <!-- Slider -->
+      <div class="ba-slider-wrap" id="baSliderWrap">
+
+        <!-- Imagen ANTES — define las dimensiones del contenedor -->
+        <img
+          src="/images/ebook/conluz.png"
+          alt="Antes: sin técnica de iluminación"
+          class="ba-img"
+        />
+
+        <!-- Imagen DESPUÉS — posición absoluta, clip-path controlado por JS -->
+        <div class="ba-after-layer" id="baAfterLayer">
           <img
             src="/images/ebook/sinluz.png"
-            alt="Foto sin técnica de iluminación"
-            style="width:100%;aspect-ratio:9/16;object-fit:contain;display:block;"
+            alt="Después: con técnica de luz natural"
+            class="ba-img"
           />
         </div>
-        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-          {['Luz de techo','Fondo desordenado','Lente angular'].map(t => (
-            <div style="display:flex;align-items:center;gap:8px;
-              font-size:.8rem;opacity:.7;">
-              ✗ {t}
+
+        <!-- Handle divisor -->
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-handle-line"></div>
+          <div class="ba-handle-circle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Labels flotantes -->
+        <div class="ba-label ba-label-before">✕ Antes</div>
+        <div class="ba-label ba-label-after">✓ Después</div>
+      </div>
+
+      <!-- Puntos de comparación -->
+      <div class="ba-points-wrap">
+        <div class="ba-col ba-col-before">
+          <div class="ba-col-header">
+            <span class="ba-col-dot ba-col-dot-bad"></span>
+            Sin técnica
+          </div>
+          {['Luz de techo', 'Fondo desordenado', 'Lente angular'].map(t => (
+            <div class="ba-point ba-point-bad">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+              {t}
             </div>
           ))}
         </div>
-      </div>
 
-      <!-- Después -->
-      <div style="border-radius:12px;overflow:hidden;">
-        <div style="background:rgba(42,157,143,0.2);padding:12px 20px;
-          color:var(--color-teal);font-weight:500;font-size:.875rem;
-          display:flex;align-items:center;gap:8px;">
-          ✓ Después
-        </div>
-        <div style="background:rgba(42,157,143,0.06);overflow:hidden;">
-          <img
-            src="/images/ebook/conluz.png"
-            alt="Foto con técnica de luz natural"
-            style="width:100%;aspect-ratio:9/16;object-fit:contain;display:block;"
-          />
-        </div>
-        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:6px;">
-          {['Luz de ventana','Fondo limpio','Zoom natural'].map(t => (
-            <div style="display:flex;align-items:center;gap:8px;
-              font-size:.8rem;color:#9FE1CB;">
-              ✓ {t}
+        <div class="ba-divider"></div>
+
+        <div class="ba-col ba-col-after">
+          <div class="ba-col-header">
+            <span class="ba-col-dot ba-col-dot-good"></span>
+            Con técnica
+          </div>
+          {['Luz de ventana', 'Fondo limpio', 'Zoom natural'].map(t => (
+            <div class="ba-point ba-point-good">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              {t}
             </div>
           ))}
         </div>
@@ -68,12 +100,209 @@
 </section>
 
 <style>
-  @media (max-width: 768px) {
-    #preview div[style*="grid-template-columns:1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-    }
-    #preview img {
-      aspect-ratio: 4/3 !important;
+  /* Layout general */
+  .preview-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* ── Slider ── */
+  .ba-slider-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: col-resize;
+    user-select: none;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    flex-shrink: 0;
+  }
+
+  /* Imagen base — define alto del slider */
+  .ba-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Capa DESPUÉS: position:absolute sobre toda el área, clip-path recorta */
+  .ba-after-layer {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 50% 0 0); /* controlado por JS */
+  }
+
+  .ba-after-layer .ba-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Handle línea + círculo */
+  .ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* controlado por JS */
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .ba-handle-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: rgba(255,255,255,0.75);
+  }
+
+  .ba-handle-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: var(--color-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    border: 2px solid rgba(255,255,255,0.3);
+    z-index: 1;
+  }
+
+  /* Labels */
+  .ba-label {
+    position: absolute;
+    top: 14px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    padding: 4px 12px;
+    border-radius: 40px;
+    z-index: 5;
+    pointer-events: none;
+    text-transform: uppercase;
+  }
+
+  .ba-label-before {
+    left: 12px;
+    background: rgba(0,0,0,0.55);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .ba-label-after {
+    right: 12px;
+    background: rgba(42,157,143,0.8);
+    color: white;
+  }
+
+  /* ── Puntos de comparación ── */
+  .ba-points-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .ba-col {
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ba-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .ba-col-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .ba-col-dot-bad  { background: #ff6b6b; }
+  .ba-col-dot-good { background: var(--color-teal); }
+
+  .ba-divider {
+    background: rgba(255,255,255,0.07);
+  }
+
+  .ba-point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+  }
+
+  .ba-point-bad  { color: rgba(255,255,255,0.5); }
+  .ba-point-bad  svg { color: #ff6b6b; flex-shrink: 0; }
+  .ba-point-good { color: #9FE1CB; }
+  .ba-point-good svg { color: var(--color-teal); flex-shrink: 0; }
+
+  @media (max-width: 560px) {
+    .ba-slider-wrap,
+    .ba-points-wrap {
+      max-width: 100%;
     }
   }
 </style>
+
+<script>
+  (function () {
+    const wrap    = document.getElementById('baSliderWrap') as HTMLElement;
+    const after   = document.getElementById('baAfterLayer') as HTMLElement;
+    const handle  = document.getElementById('baHandle') as HTMLElement;
+    if (!wrap || !after || !handle) return;
+
+    let dragging = false;
+
+    function setPos(clientX: number) {
+      const rect = wrap.getBoundingClientRect();
+      const pct  = Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 2), 98);
+      after.style.clipPath  = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left     = pct + '%';
+    }
+
+    wrap.addEventListener('mousedown',  (e) => { dragging = true; setPos(e.clientX); });
+    window.addEventListener('mousemove',(e) => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('mouseup',  ()  => { dragging = false; });
+
+    wrap.addEventListener('touchstart', (e) => {
+      dragging = true; setPos(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (dragging) setPos(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', () => { dragging = false; });
+  })();
+</script>

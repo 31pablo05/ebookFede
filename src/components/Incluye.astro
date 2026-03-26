@@ -8,11 +8,17 @@ const caps = [
   { n:'06', title:'Instagram estratégico', desc:'Cómo sacar 7 piezas de contenido de una sola sesión fotográfica.' },
 ];
 ---
-<section id="incluye" style="padding:100px 5%;background:white;">
-  <div style="max-width:1100px;margin:0 auto;">
+<section id="incluye" style="padding:clamp(5rem,9vw,7rem) 5%;background:white;position:relative;overflow:hidden;">
+
+  <!-- Decoración de fondo -->
+  <div style="position:absolute;right:-8%;bottom:-10%;width:40vw;height:40vw;
+    background:radial-gradient(circle,rgba(42,157,143,0.05) 0%,transparent 65%);
+    border-radius:50%;pointer-events:none;"></div>
+
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
 
     <div class="fade-up" style="display:flex;justify-content:space-between;
-      align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px;">
+      align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px;">
       <div>
         <p class="section-tag">Contenido</p>
         <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);">
@@ -20,40 +26,38 @@ const caps = [
         </h2>
       </div>
       <p style="font-size:.875rem;color:var(--color-muted);
-        max-width:280px;text-align:right;">
+        max-width:260px;text-align:right;line-height:1.65;">
         Cada capítulo es concreto, visual y aplicable desde el primer momento.
       </p>
     </div>
 
-    <div class="stagger fade-up" style="display:grid;
-      grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
+    <div class="stagger fade-up caps-grid" style="margin-bottom:32px;">
       {caps.map(c => (
-        <div class="cap-card" style="padding:24px;border-radius:12px;background:var(--color-bg);
-          border:1.5px solid transparent;
-          transition:border-color .2s,background .2s;">
-          <div style="font-family:var(--font-serif);font-size:2rem;font-weight:900;
-            color:rgba(42,157,143,0.2);line-height:1;margin-bottom:12px;">
-            {c.n}
-          </div>
-          <h3 style="font-family:var(--font-serif);font-size:1rem;
-            font-weight:700;margin-bottom:8px;">{c.title}</h3>
-          <p style="font-size:.8rem;color:var(--color-muted);line-height:1.55;">
-            {c.desc}
-          </p>
+        <div class="cap-card">
+          <!-- Número marca de agua -->
+          <div class="cap-num-bg">{c.n}</div>
+          <!-- Barra acento lateral -->
+          <div class="cap-accent-bar"></div>
+          <!-- Número pequeño visible -->
+          <div class="cap-num-label">{c.n}</div>
+          <h3 class="cap-title">{c.title}</h3>
+          <p class="cap-desc">{c.desc}</p>
         </div>
       ))}
     </div>
 
     <!-- Bonus -->
-    <div class="fade-up" style="background:var(--color-teal);color:white;
-      padding:20px 28px;border-radius:12px;
-      display:flex;align-items:center;gap:20px;">
-      <div style="font-size:1.8rem;flex-shrink:0;">✅</div>
+    <div class="fade-up bonus-bar">
+      <div class="bonus-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
       <div>
-        <h4 style="font-family:var(--font-serif);font-size:1rem;font-weight:700;">
+        <h4 style="font-family:var(--font-serif);font-size:1.05rem;font-weight:700;margin-bottom:4px;">
           Bonus — Checklist antes de cada sesión
         </h4>
-        <p style="font-size:.8rem;opacity:.8;margin-top:4px;">
+        <p style="font-size:.85rem;opacity:.85;line-height:1.6;">
           5 preguntas que te aseguran que cada foto que sacás tiene intención y comunica.
         </p>
       </div>
@@ -63,14 +67,128 @@ const caps = [
 </section>
 
 <style>
-  .cap-card:hover {
-    border-color: var(--color-teal) !important;
-    background: white !important;
-    box-shadow: 0 4px 20px rgba(42,157,143,0.1);
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
-  @media (max-width: 768px) {
-    #incluye div[style*="grid-template-columns:repeat(3"] {
+  .cap-card {
+    position: relative;
+    padding: 28px 24px 24px 28px;
+    border-radius: 14px;
+    background: var(--color-bg);
+    border: 1.5px solid rgba(42,157,143,0.08);
+    overflow: hidden;
+    transition: border-color .25s, box-shadow .25s, transform .25s, background .25s;
+    cursor: default;
+  }
+
+  .cap-card:hover {
+    border-color: var(--color-teal);
+    background: white;
+    box-shadow: 0 8px 32px rgba(42,157,143,0.12);
+    transform: translateY(-3px);
+  }
+
+  /* Número gigante marca de agua */
+  .cap-num-bg {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    font-family: var(--font-serif);
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(42,157,143,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    transition: color .25s;
+  }
+
+  .cap-card:hover .cap-num-bg {
+    color: rgba(42,157,143,0.1);
+  }
+
+  /* Barra acento lateral */
+  .cap-accent-bar {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: linear-gradient(180deg, var(--color-teal), transparent);
+    border-radius: 0 2px 2px 0;
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  .cap-card:hover .cap-accent-bar {
+    opacity: 1;
+  }
+
+  /* Número pequeño */
+  .cap-num-label {
+    font-family: var(--font-serif);
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--color-teal);
+    letter-spacing: .08em;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cap-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+
+  .cap-desc {
+    font-size: .82rem;
+    color: var(--color-muted);
+    line-height: 1.65;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Bonus bar */
+  .bonus-bar {
+    background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-teal-dark) 100%);
+    color: white;
+    padding: 22px 28px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 32px rgba(42,157,143,0.3);
+  }
+
+  .bonus-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  @media (max-width: 900px) {
+    .caps-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .caps-grid {
       grid-template-columns: 1fr !important;
     }
     #incluye div[style*="justify-content:space-between"] p {

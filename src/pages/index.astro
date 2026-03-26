@@ -22,29 +22,48 @@ import Footer from '../components/Footer.astro';
     <Incluye />
 
     <!-- CTA intermedio -->
-    <section style="padding:56px 5%;background:var(--color-ink);text-align:center;">
-      <div style="max-width:640px;margin:0 auto;" class="fade-up">
-        <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:8px;font-weight:300;">
+    <section class="cta-mid-section">
+      <!-- Divisor superior -->
+      <div class="cta-mid-divider"></div>
+
+      <div style="max-width:640px;margin:0 auto;text-align:center;position:relative;z-index:1;" class="fade-up">
+        <!-- Badge -->
+        <div class="cta-mid-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+          Un solo ebook · Un solo pago
+        </div>
+
+        <p style="color:rgba(255,255,255,0.6);font-size:1rem;margin-bottom:10px;font-weight:300;">
           Todo lo que aprendés lo podés aplicar hoy, con el celular que ya tenés.
         </p>
-        <p style="color:white;font-family:var(--font-serif);font-size:1.3rem;font-weight:700;margin-bottom:24px;">
+        <p style="color:white;font-family:var(--font-serif);font-size:1.4rem;font-weight:700;margin-bottom:28px;line-height:1.25;">
           Sin estudio. Sin equipos. Sin excusas.
         </p>
         <a href={CONFIG.mercadopagoUrl} class="btn-cta">
           Quiero el ebook — {CONFIG.precioCompleto}
         </a>
       </div>
+
+      <!-- Divisor inferior -->
+      <div class="cta-mid-divider"></div>
     </section>
 
     <ParaQuien />
     <Preview />
     <Autor />
-    <section id="faq" style="background:white;padding:100px 5%;">
-      <div style="max-width:1100px;margin:0 auto;">
-        <p class="section-tag">Preguntas frecuentes</p>
-        <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:48px;max-width:500px;">
-          Todo lo que necesitás<br />saber antes de comprar
-        </h2>
+    <section id="faq" class="faq-section">
+      <!-- Decoración fondo -->
+      <div class="faq-deco faq-deco-1"></div>
+      <div class="faq-deco faq-deco-2"></div>
+      <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
+        <div class="fade-up" style="margin-bottom:48px;">
+          <p class="section-tag">Preguntas frecuentes</p>
+          <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);max-width:500px;">
+            Todo lo que necesitás<br />saber antes de comprar
+          </h2>
+        </div>
         <FAQ client:visible />
       </div>
     </section>
@@ -54,9 +73,64 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  @media (max-width: 768px) {
-    #faq {
-      padding: 70px 5% !important;
-    }
+  /* ── CTA intermedio ── */
+  .cta-mid-section {
+    padding: 64px 5%;
+    background: var(--color-ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-mid-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(42,157,143,0.3), transparent);
+    margin-bottom: 40px;
+  }
+
+  .cta-mid-divider:last-child {
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+
+  .cta-mid-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(42,157,143,0.12);
+    border: 1px solid rgba(42,157,143,0.25);
+    color: var(--color-teal);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--color-bg-alt);
+    padding: clamp(5rem, 9vw, 7rem) 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .faq-deco {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .faq-deco-1 {
+    width: 45vw; height: 45vw;
+    top: -15%; right: -8%;
+    background: radial-gradient(circle, rgba(42,157,143,0.05) 0%, transparent 65%);
+  }
+
+  .faq-deco-2 {
+    width: 30vw; height: 30vw;
+    bottom: -10%; left: -5%;
+    background: radial-gradient(circle, rgba(233,168,76,0.04) 0%, transparent 65%);
   }
 </style>

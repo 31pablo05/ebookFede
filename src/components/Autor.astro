@@ -1,75 +1,74 @@
 ---
 import { CONFIG } from '../config';
----
-<section id="autor" style="position:relative;padding:100px 5%;background:var(--color-bg);overflow:hidden;">
 
-  <!-- Foto de fondo decorativa -->
-  <div class="autor-bg-photo" aria-hidden="true">
-    <img src="/images/about/fedefot.jpg" alt="" />
-  </div>
+const bioBlocks = [
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+    label: 'Pasión',
+    text: 'Hace más de cuatro años vivo de la fotografía y el contenido audiovisual. Me dedico a gastronomía, productos y cobertura de eventos.'
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    label: 'Origen',
+    text: 'Nací en Trelew-Chubut, crecí rodeado de naturaleza y silencio. Hoy vivo en Buenos Aires, apostando todo a mi proyecto y mi forma de vivir.'
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    label: 'Camino',
+    text: 'Estudié Contador Público, dejé la carrera en tercer año para hacerme caso a mí mismo. La autenticidad siempre ganó.'
+  },
+  {
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+    label: 'Propósito',
+    text: 'Trabajo con personas comprometidas y marcas que aman lo que hacen. Mi meta: crear contenido con alma, que no solo muestre sino que cuente algo.'
+  },
+];
+---
+<section id="autor" style="padding:clamp(5rem,9vw,7rem) 5%;background:var(--color-bg);position:relative;overflow:hidden;">
+
+  <!-- Decoración fondo -->
+  <div style="position:absolute;right:-8%;top:-15%;width:50vw;height:50vw;
+    background:radial-gradient(circle,rgba(42,157,143,0.06) 0%,transparent 65%);
+    border-radius:50%;pointer-events:none;"></div>
 
   <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1;">
 
-    <div class="fade-up">
+    <div class="fade-up" style="margin-bottom:56px;">
       <p class="section-tag">El autor</p>
-      <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;">
+      <h2 style="font-size:clamp(2rem,3.5vw,2.8rem);">
         ¿Por qué Fede<br/>sabe de esto?
       </h2>
     </div>
 
-    <div class="fade-up" style="display:grid;
-      grid-template-columns:280px 1fr;gap:56px;align-items:start;">
+    <div class="fade-up autor-grid">
 
-      <!-- Foto -->
-      <div style="flex-shrink:0;">
-        <img
-          src="/images/about/fedeabout.jpg"
-          alt="Fede Forquera"
-          style="width:280px;height:320px;border-radius:20px;
-            object-fit:cover;object-position:center top;
-            border:2px solid rgba(42,157,143,0.2);
-            box-shadow:0 8px 32px rgba(0,0,0,0.1);display:block;"
-        />
-      </div>
+      <!-- Foto columna -->
+      <div class="autor-foto-col">
 
-      <!-- Bio -->
-      <div>
-        <div style="font-family:var(--font-serif);font-size:1.8rem;
-          font-weight:700;margin-bottom:6px;">
-          {CONFIG.autorNombre}
-        </div>
-        <div style="color:var(--color-teal);font-size:.9rem;
-          font-weight:500;margin-bottom:24px;">
-          {CONFIG.autorRol}
+        <!-- Foto con marco teal -->
+        <div class="autor-foto-frame">
+          <img
+            src="/images/about/fedeabout.jpg"
+            alt="Fede Forquera"
+            class="autor-foto"
+          />
+          <!-- Marco decorativo teal (dentro del frame, no desborda) -->
+          <div class="foto-marco" aria-hidden="true"></div>
         </div>
 
-        <!-- Bio items -->
-        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px;">
-          {[
-            { e: '👋🏼', t: 'Hola, soy Fede Forquera, fotógrafo y filmmaker publicitario.' },
-            { e: '📷', t: 'Me dedico a crear contenido audiovisual de gastronomía, productos y cobertura de eventos.' },
-            { e: '❤️',  t: 'Hace más de cuatro años que vivo de mi pasión.' },
-            { e: '📍', t: 'Soy del sur, nací en Trelew-Chubut. Crecí rodeado de naturaleza y silencio — eso marcó mi forma de ver y estar en el mundo.' },
-            { e: '🏙️', t: 'Desde hace un par de años vivo en Buenos Aires. Dejé atrás varios miedos para apostar a esto: mi proyecto, mi pasión, mi forma de vivir.' },
-            { e: '👨🏼‍💼', t: 'Antes quería ser Contador Público. Estudié la carrera, la dejé en tercer año, trabajé en estudios contables y terminé renunciando por hacerme caso a mí mismo.' },
-            { e: '✨', t: 'Hoy mi propósito es crear contenido con alma: que no solo muestre, sino que cuente algo.' },
-            { e: '👉🏼', t: 'Trabajo con personas comprometidas y marcas que aman lo que hacen, y quieren transmitirlo con autenticidad.' },
-          ].map(({ e, t }) => (
-            <div style="display:flex;gap:12px;align-items:flex-start;">
-              <span style="font-size:1.1rem;flex-shrink:0;line-height:1.6;">{e}</span>
-              <p style="font-size:.9rem;color:var(--color-ink-2);line-height:1.65;
-                font-weight:300;margin:0;">{t}</p>
-            </div>
-          ))}
+        <!-- Badge nombre/rol -->
+        <div class="autor-badge">
+          <div class="autor-badge-dot"></div>
+          <div>
+            <div class="autor-badge-name">{CONFIG.autorNombre}</div>
+            <div class="autor-badge-role">{CONFIG.autorRol}</div>
+          </div>
         </div>
 
+        <!-- Instagram link -->
         <a href={CONFIG.instagramUrl} target="_blank" rel="noopener noreferrer"
-          style="display:inline-flex;align-items:center;gap:8px;
-          background:white;border:1px solid rgba(0,0,0,0.08);
-          padding:10px 18px;border-radius:40px;
-          font-size:.875rem;font-weight:500;color:var(--color-ink);
-          transition:border-color .2s,background .2s;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+          class="autor-ig-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="20" height="20" rx="5"/>
             <circle cx="12" cy="12" r="4"/>
@@ -79,59 +78,244 @@ import { CONFIG } from '../config';
         </a>
       </div>
 
+      <!-- Bio columna -->
+      <div class="autor-bio-col">
+
+        <div class="autor-intro">
+          <p>Hola, soy <strong>Fede Forquera</strong> — fotógrafo y filmmaker publicitario. Este ebook nació de años de trabajo real con emprendedores que necesitaban mejorar sus fotos sin equipos caros.</p>
+        </div>
+
+        <div class="autor-blocks">
+          {bioBlocks.map(b => (
+            <div class="autor-block">
+              <div class="autor-block-icon" set:html={b.icon}></div>
+              <div>
+                <div class="autor-block-label">{b.label}</div>
+                <p class="autor-block-text">{b.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  /* Foto de fondo */
-  .autor-bg-photo {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 48%;
-    pointer-events: none;
-    -webkit-mask-image: linear-gradient(to left, black 30%, transparent 75%);
-    mask-image: linear-gradient(to left, black 30%, transparent 75%);
-    z-index: 0;
+  /* ── Grid principal ── */
+  .autor-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    align-items: start;
   }
-  .autor-bg-photo img {
+
+  /* ── Foto columna ── */
+  .autor-foto-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  /* Frame de la foto — contiene todo */
+  .autor-foto-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: visible; /* necesario para el marco decorativo */
+  }
+
+  .autor-foto {
     width: 100%;
-    height: 100%;
+    height: 340px;
+    border-radius: 18px;
     object-fit: cover;
-    object-position: center center;
-    opacity: 0.35;
+    object-position: center top;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.14);
     display: block;
+    position: relative;
+    z-index: 1;
   }
 
-  @media (max-width: 1024px) {
-    .autor-bg-photo {
-      width: 50%;
+  /* Marco teal decorativo — borde exterior simple sin overflow problemático */
+  .foto-marco {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    border: 2px solid rgba(42,157,143,0.35);
+    pointer-events: none;
+    z-index: 2;
+    /* Pequeño offset visual con box-shadow externo en lugar de insets negativos */
+    box-shadow: 6px 6px 0 0 rgba(42,157,143,0.12);
+  }
+
+  /* Badge */
+  .autor-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid rgba(42,157,143,0.15);
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .autor-badge-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--color-teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(42,157,143,0.15);
+  }
+
+  .autor-badge-name {
+    font-family: var(--font-serif);
+    font-size: .92rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+
+  .autor-badge-role {
+    font-size: .72rem;
+    color: var(--color-teal);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* Instagram button */
+  .autor-ig-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 10px 16px;
+    border-radius: 40px;
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    transition: border-color .2s, box-shadow .2s;
+    align-self: flex-start;
+  }
+
+  .autor-ig-btn:hover {
+    border-color: var(--color-teal);
+    box-shadow: 0 4px 16px rgba(42,157,143,0.12);
+  }
+
+  /* ── Bio columna ── */
+  .autor-bio-col {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  /* Intro */
+  .autor-intro {
+    padding-left: 20px;
+    border-left: 3px solid var(--color-teal);
+  }
+
+  .autor-intro p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-ink-2);
+    font-weight: 300;
+  }
+
+  .autor-intro strong {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* Bloques bio */
+  .autor-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .autor-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .autor-block:hover {
+    border-color: rgba(42,157,143,0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+
+  .autor-block-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--color-teal-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-teal);
+    flex-shrink: 0;
+  }
+
+  .autor-block-label {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--color-teal);
+    margin-bottom: 3px;
+  }
+
+  .autor-block-text {
+    font-size: .86rem;
+    color: var(--color-ink-2);
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .autor-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .autor-foto-col {
+      align-items: center;
+    }
+    .autor-foto-frame {
+      width: 260px;
+    }
+    .autor-foto {
+      height: 300px;
+    }
+    .autor-badge {
+      width: 260px;
+    }
+    .autor-ig-btn {
+      align-self: center;
     }
   }
 
-  @media (max-width: 768px) {
-    /* Foto de fondo en mobile: franja inferior */
-    .autor-bg-photo {
+  @media (max-width: 480px) {
+    .autor-foto-frame {
       width: 100%;
-      top: auto;
-      bottom: 0;
-      height: 48%;
-      -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 80%);
-      mask-image: linear-gradient(to bottom, black 30%, transparent 80%);
     }
-    .autor-bg-photo img {
-      object-position: center top;
-      opacity: 0.28;
+    .autor-foto {
+      height: 260px;
     }
-    /* Grid mobile */
-    #autor div[style*="grid-template-columns:280px"] {
-      grid-template-columns: 1fr !important;
-    }
-    #autor img[src*="fedeabout"] {
-      width: 100% !important;
-      height: 260px !important;
+    .autor-badge {
+      width: 100%;
     }
   }
 </style>

@@ -1,69 +1,100 @@
 ---
 import { CONFIG } from '../config';
 ---
-<section id="hero" style="min-height:100vh;padding:120px 5% 100px;
+<section id="hero" style="min-height:100vh;padding:100px 5% 80px;
   background:var(--color-bg);position:relative;overflow:hidden;">
 
-  <!-- Círculo decorativo de fondo -->
-  <div style="position:absolute;right:-10%;top:10%;width:50vw;height:50vw;
-    background:radial-gradient(circle,rgba(42,157,143,0.06) 0%,transparent 70%);
+  <!-- Textura grain de fondo -->
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <!-- Círculo decorativo grande teal -->
+  <div style="position:absolute;right:-15%;top:-5%;width:60vw;height:60vw;
+    background:radial-gradient(circle,rgba(42,157,143,0.09) 0%,transparent 65%);
+    border-radius:50%;pointer-events:none;"></div>
+
+  <!-- Círculo decorativo naranja pequeño -->
+  <div style="position:absolute;left:-5%;bottom:10%;width:30vw;height:30vw;
+    background:radial-gradient(circle,rgba(233,168,76,0.07) 0%,transparent 65%);
     border-radius:50%;pointer-events:none;"></div>
 
   <div style="max-width:1100px;margin:0 auto;display:grid;
-    grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;">
 
     <!-- Copy -->
     <div class="fade-up">
       <!-- Badge -->
       <div style="display:inline-flex;align-items:center;gap:8px;
         background:var(--color-orange);color:#5a3800;padding:6px 16px;
-        border-radius:40px;font-size:.75rem;font-weight:500;
-        letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px;">
+        border-radius:40px;font-size:.75rem;font-weight:600;
+        letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px;
+        box-shadow:0 4px 16px rgba(233,168,76,0.35);">
         <span style="width:6px;height:6px;background:#5a3800;border-radius:50%;"></span>
         Ideal para emprendedores
       </div>
 
       <!-- H1 -->
-      <h1 style="font-size:clamp(2.8rem,5vw,4rem);font-weight:900;
-        color:var(--color-ink);margin-bottom:20px;">
+      <h1 style="font-size:clamp(3rem,5.5vw,4.4rem);font-weight:900;
+        color:var(--color-ink);margin-bottom:24px;letter-spacing:-0.03em;line-height:1.05;">
         Fotos con celular<br/>
         <em style="color:var(--color-teal);font-style:italic;">que venden</em>
       </h1>
 
+      <!-- Línea decorativa -->
+      <div style="width:56px;height:3px;background:linear-gradient(90deg,var(--color-teal),transparent);
+        border-radius:2px;margin-bottom:20px;"></div>
+
       <!-- Subtítulo -->
-      <p style="font-size:1.1rem;line-height:1.65;color:var(--color-ink-2);
-        margin-bottom:32px;max-width:480px;font-weight:300;">
+      <p style="font-size:1.15rem;line-height:1.7;color:var(--color-ink-2);
+        margin-bottom:36px;max-width:460px;font-weight:300;">
         La guía práctica para mostrar tus productos como merecen.
         Sin estudio, sin equipos, sin conocimientos técnicos.
       </p>
 
       <!-- CTA -->
-      <a href={CONFIG.mercadopagoUrl} class="btn-cta">
+      <a href={CONFIG.mercadopagoUrl} class="btn-cta btn-cta-hero">
         Quiero el ebook — {CONFIG.precioCompleto}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
       </a>
-      <p style="font-size:.8rem;color:var(--color-muted);margin-top:12px;">
-        📩 Recibís el PDF en tu email al instante
-      </p>
+
+      <!-- Social proof -->
+      <div class="hero-social-proof">
+        <div class="hero-stars">
+          {[1,2,3,4,5].map(() => (
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          ))}
+        </div>
+        <span>+200 emprendedores ya lo tienen</span>
+        <div class="hero-proof-dot"></div>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span>PDF inmediato</span>
+      </div>
     </div>
 
     <!-- Portada del ebook -->
-    <div class="book-float fade-up" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:24px;">
+    <div class="book-float fade-up hero-book-wrap">
+      <!-- Glow detrás del ebook -->
+      <div class="book-glow"></div>
+
       <img
         src="/images/ebook/portadaEbook.svg"
         alt="Portada del ebook Fotos con Celular que Venden"
-        style="
-          width:460px;
-          max-width:100%;
-          filter:drop-shadow(16px 24px 24px rgba(0,0,0,0.25));
-        "
+        class="book-img"
       />
+
       <!-- Pills -->
-      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;">
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;position:relative;z-index:1;">
         {['Luz natural bien usada', 'Escenas simples', 'Solo tu celular'].map(item => (
           <div style="display:flex;align-items:center;gap:7px;
-            background:white;border:1px solid rgba(42,157,143,0.2);
-            padding:8px 14px;border-radius:40px;font-size:.8rem;color:var(--color-ink-2);">
-            <span style="width:8px;height:8px;background:var(--color-teal);
+            background:white;border:1px solid rgba(42,157,143,0.18);
+            padding:8px 16px;border-radius:40px;font-size:.8rem;color:var(--color-ink-2);
+            box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+            <span style="width:7px;height:7px;background:var(--color-teal);
               border-radius:50%;flex-shrink:0;"></span>
             {item}
           </div>
@@ -75,17 +106,104 @@ import { CONFIG } from '../config';
 </section>
 
 <style>
+  /* Textura grain */
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px;
+    opacity: 0.6;
+  }
+
+  /* Hero book wrapper */
+  .hero-book-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+  }
+
+  /* Glow detrás del ebook */
+  .book-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    width: 75%;
+    height: 75%;
+    background: radial-gradient(ellipse, rgba(42,157,143,0.22) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(32px);
+    z-index: 0;
+  }
+
+  /* Imagen del ebook */
+  .book-img {
+    width: 460px;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    filter:
+      drop-shadow(0 8px 16px rgba(0,0,0,0.12))
+      drop-shadow(20px 32px 40px rgba(0,0,0,0.22))
+      drop-shadow(-4px 4px 8px rgba(42,157,143,0.12));
+  }
+
+  /* CTA extra styles */
+  .btn-cta-hero {
+    font-size: 1.05rem;
+    padding: 17px 34px;
+    font-weight: 600;
+  }
+
+  /* Social proof */
+  .hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: .8rem;
+    color: var(--color-muted);
+    flex-wrap: wrap;
+  }
+
+  .hero-stars {
+    display: flex;
+    gap: 2px;
+    color: var(--color-orange);
+  }
+
+  .hero-proof-dot {
+    width: 3px;
+    height: 3px;
+    background: var(--color-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
   @media (max-width: 768px) {
     #hero {
-      padding-top: 150px !important;
+      padding-top: 90px !important;
       padding-bottom: 60px !important;
+    }
+    #hero > div > div:first-child {
+      order: 2;
     }
     #hero > div {
       grid-template-columns: 1fr !important;
       gap: 32px !important;
     }
-    #hero > div > div:last-child {
-      order: -1;
+    #hero > div > .hero-book-wrap {
+      order: 1;
+    }
+    .book-img {
+      width: 300px !important;
     }
   }
 </style>
