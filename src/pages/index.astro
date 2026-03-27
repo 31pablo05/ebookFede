@@ -13,7 +13,65 @@ import FAQ from '../components/islands/FAQ.jsx';
 import CTAFinal from '../components/CTAFinal.astro';
 import Footer from '../components/Footer.astro';
 ---
+
 <Layout>
+  <!-- FAQPage schema en <head> via named slot -->
+  <script slot="head" type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Necesito un celular único o de última generación para aplicar las técnicas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Las técnicas funcionan con cualquier celular que tenga una cámara decente. Lo importante es la luz, el encuadre y la intención — no el hardware."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Tengo que saber de fotografía para usar este ebook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para nada. El ebook está pensado para emprendedores sin experiencia en fotografía. Todo está explicado desde cero, con ejemplos visuales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo toma aplicar las técnicas del ebook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Las primeras mejoras las vas a ver en tu próxima sesión fotográfica, que puede durar 30 a 60 minutos. El contenido es directo y aplicable de inmediato."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El ebook sirve para cualquier tipo de producto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Está especialmente enfocado en productos físicos: gastronomía, artesanías, indumentaria, accesorios, cosmética y más."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se puede aplicar este ebook también para fotografía de servicios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En parte. La sección de Instagram estratégico aplica a cualquier rubro. Para servicios, los conceptos se adaptan al producto visual de tu marca."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿En qué formato recibo el ebook y cómo accedo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En PDF digital, con entrega inmediata al confirmar el pago. Podés leerlo desde el celular, tablet o computadora sin ninguna app adicional."
+        }
+      }
+    ]
+  }
+  </script>
   <Nav />
   <main>
     <Hero />

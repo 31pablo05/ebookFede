@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquear recursos innecesarios para el crawler
+Disallow: /images/ebook/sinluz.png
+Disallow: /images/ebook/conluz.png
+Disallow: /videos/
+
+Sitemap: https://fedeforquera.com/sitemap.xml

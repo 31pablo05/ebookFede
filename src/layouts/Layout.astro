@@ -6,62 +6,139 @@ interface Props {
   description?: string;
 }
 const {
-  title = 'Fotos con Celular que Venden — Fede Forquera',
-  description = 'La guía práctica para crear imágenes profesionales para redes y e-commerce sin estudio ni equipos.'
+  title = 'Fotos con Celular que Venden | Ebook para Emprendedores — Fede Forquera',
+  description = 'Fotografiá tus productos con el celular que ya tenés y vendé más. Guía práctica de 50 páginas con técnicas de luz natural, escenografía y estrategia para Instagram. Sin estudio ni equipos.',
 } = Astro.props;
+
+const siteUrl   = 'https://fedeforquera.com';
+const ogImage   = `${siteUrl}/images/og-cover.jpg`;
+const canonical = `${siteUrl}/`;
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- ── Identidad ── -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="ebook fotografía celular, fotos productos celular, fotografía emprendedores argentina, fotos que venden instagram, guía fotografía celular, fede forquera" />
-    <link rel="canonical" href="https://fedeforquera.com/" />
-    <!-- Open Graph -->
+    <meta name="author" content="Fede Forquera" />
+    <meta name="keywords" content="ebook fotografía celular, fotos productos celular, fotografía emprendedores argentina, fotos que venden instagram, guía fotografía celular, fotografía sin estudio, fede forquera fotógrafo, ebook emprendedores, como sacar fotos para vender" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- ── Región / Idioma ── -->
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="AR" />
+    <meta name="geo.placename" content="Argentina" />
+
+    <!-- ── UI / PWA ── -->
+    <meta name="theme-color" content="#2A9D8F" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- ── Open Graph ── -->
     <meta property="og:type" content="product" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/ebook/fotosQueVenden.PNG" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://fedeforquera.com/" />
+    <meta property="og:image:alt" content="Portada del ebook Fotos con Celular que Venden de Fede Forquera" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="Fede Forquera — Fotografía" />
-    <!-- Twitter Card -->
+    <meta property="product:price:amount" content="20000" />
+    <meta property="product:price:currency" content="ARS" />
+
+    <!-- ── Twitter / X ── -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/ebook/fotosQueVenden.PNG" />
-    <!-- Schema.org JSON-LD -->
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Ebook Fotos con Celular que Venden — Fede Forquera" />
+    <meta name="twitter:creator" content="@fede_forquera" />
+    <meta name="twitter:site" content="@fede_forquera" />
+
+    <!-- ── Schema.org: Book (ebook) ── -->
     <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "Book",
+      "@id": "https://fedeforquera.com/#ebook",
       "name": "Fotos con Celular que Venden",
-      "description": "Guía práctica de 50 páginas para fotografiar productos con el celular. Técnicas reales de luz natural, escenografía y redes sociales para emprendedores.",
-      "image": "https://fedeforquera.com/images/ebook/fotosQueVenden.PNG",
-      "brand": { "@type": "Brand", "name": "Fede Forquera" },
-      "author": { "@type": "Person", "name": "Fede Forquera", "url": "https://www.instagram.com/fede_forquera/" },
+      "alternateName": "Guía práctica de fotografía de productos con celular",
+      "bookFormat": "https://schema.org/EBook",
+      "inLanguage": "es",
+      "numberOfPages": 50,
+      "description": "Guía práctica para fotografiar productos con el celular. Técnicas reales de luz natural, escenografía simple y estrategia para Instagram y e-commerce. Para emprendedores sin experiencia previa en fotografía.",
+      "image": "https://fedeforquera.com/images/ebook/portadaEbook.svg",
+      "url": "https://fedeforquera.com/",
+      "author": {
+        "@type": "Person",
+        "@id": "https://fedeforquera.com/#autor",
+        "name": "Fede Forquera",
+        "jobTitle": "Fotógrafo & Filmmaker Publicitario",
+        "sameAs": ["https://www.instagram.com/fede_forquera/"]
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://fedeforquera.com/#autor"
+      },
       "offers": {
         "@type": "Offer",
         "price": "20000",
         "priceCurrency": "ARS",
-        "availability": "https://schema.org/InStock"
-      }
+        "availability": "https://schema.org/InStock",
+        "url": "https://fedeforquera.com/",
+        "seller": { "@type": "Person", "name": "Fede Forquera" }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "200",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Fotografía de productos" },
+        { "@type": "Thing", "name": "Fotografía con celular" },
+        { "@type": "Thing", "name": "Marketing en redes sociales" },
+        { "@type": "Thing", "name": "Emprendedores" }
+      ]
     }
     </script>
-    <!-- Fonts -->
+
+    <!-- ── Schema.org: WebSite ── -->
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://fedeforquera.com/#website",
+      "url": "https://fedeforquera.com/",
+      "name": "Fede Forquera — Fotografía para Emprendedores",
+      "description": "Ebook y recursos de fotografía de productos para emprendedores argentinos.",
+      "inLanguage": "es-AR",
+      "publisher": { "@id": "https://fedeforquera.com/#autor" }
+    }
+    </script>
+
+    <!-- ── Fonts ── -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <!-- ── Schemas adicionales por página ── -->
+    <slot name="head" />
+
+    <!-- ── Favicon ── -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <slot />
-    <script>
+    <script is:inline>
       const observer = new IntersectionObserver(
         (entries) => entries.forEach(e => {
           if (e.isIntersecting) {
