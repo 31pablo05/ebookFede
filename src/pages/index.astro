@@ -133,4 +133,32 @@ import Footer from '../components/Footer.astro';
     bottom: -10%; left: -5%;
     background: radial-gradient(circle, rgba(233,168,76,0.04) 0%, transparent 65%);
   }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .cta-mid-section {
+      padding: 48px 5%;
+    }
+    .cta-mid-divider {
+      margin-bottom: 28px;
+    }
+    .cta-mid-divider:last-child {
+      margin-top: 28px;
+    }
+    /* CTA intermedio: btn full-width */
+    .cta-mid-section .btn-cta {
+      width: 100%;
+      justify-content: center;
+      font-size: .95rem;
+    }
+    /* Texto del CTA intermedio */
+    .cta-mid-section p[style*="font-size:1.4rem"] {
+      font-size: 1.2rem !important;
+    }
+    /* FAQ padding */
+    .faq-section {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  }
 </style>

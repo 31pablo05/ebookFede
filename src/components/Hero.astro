@@ -189,21 +189,56 @@ import { CONFIG } from '../config';
 
   @media (max-width: 768px) {
     #hero {
-      padding-top: 90px !important;
-      padding-bottom: 60px !important;
+      padding-top: 88px !important;
+      padding-bottom: 56px !important;
+      min-height: auto !important;
+    }
+
+    /* Grid: 1 columna, libro arriba */
+    #hero > div {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
     }
     #hero > div > div:first-child {
       order: 2;
-    }
-    #hero > div {
-      grid-template-columns: 1fr !important;
-      gap: 32px !important;
+      text-align: center;
     }
     #hero > div > .hero-book-wrap {
       order: 1;
     }
+
+    /* Libro: más pequeño y centrado */
     .book-img {
-      width: 300px !important;
+      width: 200px !important;
+      max-width: 200px !important;
+    }
+
+    /* CTA: casi full-width */
+    .btn-cta-hero {
+      width: 100%;
+      justify-content: center;
+      font-size: .95rem !important;
+      padding: 15px 24px !important;
+    }
+
+    /* Social proof: centrado */
+    .hero-social-proof {
+      justify-content: center;
+    }
+
+    /* El h1 en mobile */
+    #hero h1 {
+      font-size: clamp(2.4rem, 8vw, 3.4rem) !important;
+    }
+
+    /* Subtítulo: sin max-width fijo */
+    #hero p[style*="max-width:460px"] {
+      max-width: 100% !important;
+    }
+
+    /* Book wrap: centrar pills */
+    .hero-book-wrap {
+      gap: 16px !important;
     }
   }
 </style>

@@ -257,8 +257,32 @@ const features = [
     background: #f0faf8;
   }
 
-  @media (max-width: 560px) {
-    .cta-amount { font-size: 4rem; }
-    .cta-btn { padding: 16px 36px; font-size: 1rem; }
+  @media (max-width: 768px) {
+    .cta-social-proof {
+      font-size: .78rem;
+      padding: 7px 14px;
+    }
+    .cta-features {
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .cta-pill {
+      font-size: .78rem;
+      padding: 6px 14px;
+    }
+    .cta-price-block {
+      margin-bottom: 28px;
+    }
+    /* Botón full-width en mobile */
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 17px 24px;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cta-amount { font-size: 3.8rem; }
   }
 </style>

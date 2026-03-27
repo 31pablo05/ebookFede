@@ -199,12 +199,23 @@ const previews = [
   @media (max-width: 768px) {
     .quees-header {
       grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 36px;
     }
     .quees-img-wrap {
       display: none;
     }
     .quees-cards {
       grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .quees-card {
+      padding: 22px 18px 20px;
+    }
+    /* CTA full-width */
+    #que-es .btn-cta {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

@@ -250,17 +250,26 @@ import { CONFIG } from '../config';
     }
   }
 
-  @media (max-width: 560px) {
+  @media (max-width: 768px) {
+    #footer {
+      padding: 48px 5% 28px;
+    }
     .footer-inner {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 28px;
+      padding-bottom: 36px;
     }
-    .footer-cta-col {
-      align-items: flex-start;
+    .footer-brand {
+      grid-column: auto;
+    }
+    .footer-btn {
+      width: 100%;
+      justify-content: center;
     }
     .footer-bottom {
       flex-direction: column;
       text-align: center;
+      gap: 10px;
     }
   }
 </style>

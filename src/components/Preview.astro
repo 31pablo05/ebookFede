@@ -269,10 +269,20 @@
   .ba-point-good { color: #9FE1CB; }
   .ba-point-good svg { color: var(--color-teal); flex-shrink: 0; }
 
-  @media (max-width: 560px) {
+  @media (max-width: 768px) {
     .ba-slider-wrap,
     .ba-points-wrap {
       max-width: 100%;
+    }
+    /* Points grid: reducir texto */
+    .ba-col {
+      padding: 14px 12px;
+    }
+    .ba-col-header {
+      font-size: .65rem;
+    }
+    .ba-point {
+      font-size: .78rem;
     }
   }
 </style>
