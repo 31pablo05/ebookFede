@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { CONFIG } from '../config';
 
 interface Props {
   title?: string;
@@ -10,8 +11,8 @@ const {
   description = 'Fotografiá tus productos con el celular que ya tenés y vendé más. Guía práctica de 50 páginas con técnicas de luz natural, escenografía y estrategia para Instagram. Sin estudio ni equipos.',
 } = Astro.props;
 
-const siteUrl   = 'https://fedeforquera.com';
-const ogImage   = `${siteUrl}/images/ebook/portada.png`;
+const siteUrl   = CONFIG.siteUrl;
+ const ogImage   = `${siteUrl}/images/og-cover.jpg`;
 const canonical = `${siteUrl}/`;
 ---
 <!DOCTYPE html>
@@ -133,8 +134,8 @@ const canonical = `${siteUrl}/`;
     <slot name="head" />
 
     <!-- ── Favicon ── -->
-    <link rel="icon" type="image/svg+xml" href="/images/ebook/portadaEbook.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
   <body>

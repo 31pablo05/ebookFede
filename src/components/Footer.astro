@@ -7,7 +7,7 @@ import { CONFIG } from '../config';
 
     <!-- Columna izquierda: Logo + tagline + ig -->
     <div class="footer-brand">
-      <img src="/images/logo/logo3.svg" alt="Fede Forquera" class="footer-logo" />
+      <img src="/images/logo/logofede2.svg" alt="Fede Forquera" class="footer-logo" />
       <p class="footer-tagline">
         Fotógrafo & Filmmaker Publicitario.<br/>
         Creando contenido con alma desde Buenos Aires.
@@ -88,15 +88,23 @@ import { CONFIG } from '../config';
   .footer-brand {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 0;
   }
 
   .footer-logo {
-    height: 60px;
+    height: 88px;
     width: auto;
     display: block;
-    margin-bottom: 18px;
-    opacity: 0.9;
+    margin-bottom: 20px;
+    opacity: 0.92;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    transform-origin: left center;
+  }
+
+  .footer-logo:hover {
+    transform: scale(1.06);
+    opacity: 1;
   }
 
   .footer-tagline {
@@ -261,6 +269,16 @@ import { CONFIG } from '../config';
     }
     .footer-brand {
       grid-column: auto;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-logo {
+      height: 76px;
+      margin-bottom: 16px;
+      transform-origin: center center;
+    }
+    .footer-tagline {
+      max-width: 100%;
     }
     .footer-btn {
       width: 100%;
