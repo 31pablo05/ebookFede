@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: '¿Sirve para cualquier tipo de producto?',
-    a: 'Sí. Está especialmente enfocado en productos físicos: gastronomía, artesanal, indumentaria, accesorios, cosmmética y más.',
+    a: 'Sí. Está especialmente enfocado en productos físicos: gastronomía, artesanías, indumentaria, accesorios, cosmética y más.',
   },
   {
     q: '¿Se puede aplicar también para servicios?',
