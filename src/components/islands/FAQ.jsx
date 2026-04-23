@@ -25,6 +25,18 @@ const faqs = [
     q: '¿En qué formato recibo el ebook?',
     a: 'En PDF digital, de entrega inmediata al confirmar el pago. Podés leerlo desde el celular, tablet o computadora.',
   },
+  {
+    q: '¿Cómo es el proceso de pago y entrega?',
+    a: 'El pago es por transferencia bancaria. Una vez confirmado, recibís el PDF directamente por WhatsApp. Sin demoras ni formularios.',
+  },
+  {
+    q: '¿Funciona en un departamento pequeño, sin balcón ni luz natural directa?',
+    a: 'Sí. Una de las técnicas del ebook está pensada para eso: encontrar y aprovechar cualquier fuente de luz indirecta, incluso en espacios chicos.',
+  },
+  {
+    q: '¿Puedo consultar dudas después de comprar?',
+    a: 'Sí, podés escribirle directamente a Fede por WhatsApp con cualquier pregunta sobre el contenido del ebook.',
+  },
 ];
 
 const styles = {
