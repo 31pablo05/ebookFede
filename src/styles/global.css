@@ -2,12 +2,13 @@
 
 @theme {
   --color-bg:          #F7EEE4;
-  --color-bg-alt:      #F0E4D4;
-  --color-teal:        #2A9D8F;
-  --color-teal-dark:   #1d7a6e;
-  --color-teal-light:  #e0f5f2;
-  --color-orange:      #E9A84C;
-  --color-orange-dark: #c88830;
+  --color-bg-alt:      #EFE4D8;
+  --color-teal:        #28C0B4;
+  --color-teal-dark:   #0F7A6A;
+  --color-teal-light:  #D4F5F1;
+  --color-orange:      #E05228;
+  --color-orange-dark: #BF3D18;
+  --color-salmon:      #E89C78;
   --color-ink:         #1a1a18;
   --color-ink-2:       #3a3a36;
   --color-muted:       #7a756c;
@@ -101,13 +102,13 @@ p {
   cursor: pointer;
   text-decoration: none;
   transition: background .2s, transform .2s, box-shadow .2s;
-  box-shadow: 0 6px 24px rgba(42,157,143,0.35);
+  box-shadow: 0 6px 24px rgba(40,192,180,0.35);
   letter-spacing: -0.01em;
 }
 .btn-cta:hover {
   background: var(--color-teal-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(42,157,143,0.4);
+  box-shadow: 0 10px 32px rgba(40,192,180,0.4);
 }
 
 /* Scroll fade-up */
@@ -138,6 +139,6 @@ p {
 
 /* Selección de texto */
 ::selection {
-  background: rgba(42,157,143,0.18);
+  background: rgba(40,192,180,0.18);
   color: var(--color-ink);
 }
