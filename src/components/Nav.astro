@@ -6,7 +6,7 @@ import { CONFIG } from '../config';
 
     <!-- Logo -->
     <a href="#hero" class="nav-logo">
-      <img src="/images/logo/logo3.svg" alt="Fede Forquera" class="nav-logo-img" />
+      <img src="/images/logo/logofede2.svg" alt="Fede Forquera" class="nav-logo-img" />
     </a>
 
     <!-- Links desktop -->
@@ -17,8 +17,8 @@ import { CONFIG } from '../config';
     </ul>
 
     <!-- CTA desktop (oculto en mobile) -->
-    <a href={CONFIG.mercadopagoUrl} class="nav-cta">
-      <span>Comprá el ebook</span>
+    <a href={CONFIG.whatsappUrl} class="nav-cta" target="_blank" rel="noopener noreferrer">
+      <span>Pedilo por WhatsApp</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -39,8 +39,8 @@ import { CONFIG } from '../config';
       <li><a href="#para-quien" class="nav-mobile-link">Para quién</a></li>
       <li><a href="#autor" class="nav-mobile-link">El autor</a></li>
     </ul>
-    <a href={CONFIG.mercadopagoUrl} class="nav-mobile-cta">
-      Comprá el ebook →
+    <a href={CONFIG.whatsappUrl} class="nav-mobile-cta" target="_blank" rel="noopener noreferrer">
+      Pedilo por WhatsApp →
     </a>
   </div>
 </nav>
@@ -123,14 +123,16 @@ import { CONFIG } from '../config';
   }
 
   .nav-logo-img {
-    height: 52px;
+    height: 72px;
     width: auto;
     display: block;
-    transition: opacity 0.2s;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: left center;
   }
 
   .nav-logo:hover .nav-logo-img {
-    opacity: 0.85;
+    transform: scale(1.12);
+    opacity: 1;
   }
 
   /* Links desktop */
